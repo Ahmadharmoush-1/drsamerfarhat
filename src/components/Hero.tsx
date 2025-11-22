@@ -65,17 +65,31 @@ const Hero = () => {
           </div>
 
           {/* Doctor Image */}
-         <div className="hidden md:flex justify-center items-center animate-slide-in-right">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl transition-all duration-500 group-hover:bg-primary/30" />
-             <img 
-  src="/photos/drlogo.jpg" 
-  alt="Dr. Samer Farhat"
-   className="relative w-full max-w-md rounded-3xl shadow-2xl transition-transform duration-500 group-hover:scale-102"
-              />
+        {/* Doctor Image */}
+<div className="flex md:flex justify-center items-center animate-slide-in-right pt-6 md:pt-0">
+  <div className="relative group">
+    {/* Glow */}
+    <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl transition-all duration-500 group-hover:bg-primary/30" />
 
-            </div>
-          </div>
+    <img 
+      src="/photos/drlogo.jpg" 
+      alt="Dr. Samer Farhat"
+      className="
+        relative 
+        rounded-3xl 
+        shadow-2xl 
+        transition-transform 
+        duration-500 
+        group-hover:scale-105
+
+        w-[160px]          /* MOBILE SIZE */
+        sm:w-[200px]       /* SMALL DEVICES */
+        md:w-full          /* DESKTOP FULL SIZE */
+        md:max-w-md
+      "
+    />
+  </div>
+</div>
         </div>
       </div>
     </section>
