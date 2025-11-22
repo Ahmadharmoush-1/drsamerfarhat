@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/App.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1763825337236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1763825337236,
+            "name": "Commit-0",
+            "content": "import { Toaster } from \"@/components/ui/toaster\";\r\nimport { Toaster as Sonner } from \"@/components/ui/sonner\";\r\nimport { TooltipProvider } from \"@/components/ui/tooltip\";\r\nimport { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\r\nimport { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\nimport Index from \"./pages/Index\";\r\nimport NotFound from \"./pages/NotFound\";\r\n\r\nconst queryClient = new QueryClient();\r\n\r\nconst App = () => (\r\n  <QueryClientProvider client={queryClient}>\r\n    <TooltipProvider>\r\n      <Toaster />\r\n      <Sonner />\r\n      <BrowserRouter>\r\n        <Routes>\r\n          <Route path=\"/\" element={<Index />} />\r\n          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL \"*\" ROUTE */}\r\n          <Route path=\"*\" element={<NotFound />} />\r\n        </Routes>\r\n      </BrowserRouter>\r\n    </TooltipProvider>\r\n  </QueryClientProvider>\r\n);\r\n\r\nexport default App;\r\n"
+        }
+    ]
+}

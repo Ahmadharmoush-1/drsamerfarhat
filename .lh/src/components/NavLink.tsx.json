@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/NavLink.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1763825269634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1763826241729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,5 +24,5 @@\n );\r\n \r\n NavLink.displayName = \"NavLink\";\r\n \r\n-export { NavLink };\r\n+export { NavLink };\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1763825269634,
+            "name": "Commit-0",
+            "content": "import { NavLink as RouterNavLink, NavLinkProps } from \"react-router-dom\";\r\nimport { forwardRef } from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface NavLinkCompatProps extends Omit<NavLinkProps, \"className\"> {\r\n  className?: string;\r\n  activeClassName?: string;\r\n  pendingClassName?: string;\r\n}\r\n\r\nconst NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(\r\n  ({ className, activeClassName, pendingClassName, to, ...props }, ref) => {\r\n    return (\r\n      <RouterNavLink\r\n        ref={ref}\r\n        to={to}\r\n        className={({ isActive, isPending }) =>\r\n          cn(className, isActive && activeClassName, isPending && pendingClassName)\r\n        }\r\n        {...props}\r\n      />\r\n    );\r\n  },\r\n);\r\n\r\nNavLink.displayName = \"NavLink\";\r\n\r\nexport { NavLink };\r\n"
+        }
+    ]
+}

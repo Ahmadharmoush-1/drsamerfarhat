@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/NotFound.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1763825324924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1763825324924,
+            "name": "Commit-0",
+            "content": "import { useLocation } from \"react-router-dom\";\r\nimport { useEffect } from \"react\";\r\n\r\nconst NotFound = () => {\r\n  const location = useLocation();\r\n\r\n  useEffect(() => {\r\n    console.error(\"404 Error: User attempted to access non-existent route:\", location.pathname);\r\n  }, [location.pathname]);\r\n\r\n  return (\r\n    <div className=\"flex min-h-screen items-center justify-center bg-muted\">\r\n      <div className=\"text-center\">\r\n        <h1 className=\"mb-4 text-4xl font-bold\">404</h1>\r\n        <p className=\"mb-4 text-xl text-muted-foreground\">Oops! Page not found</p>\r\n        <a href=\"/\" className=\"text-primary underline hover:text-primary/90\">\r\n          Return to Home\r\n        </a>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default NotFound;\r\n"
+        }
+    ]
+}

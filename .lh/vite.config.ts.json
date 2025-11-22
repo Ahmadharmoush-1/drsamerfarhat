@@ -1,0 +1,22 @@
+{
+    "sourceFile": "vite.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1763825418443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1763826377710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import { defineConfig } from \"vite\";\n+import react from \"@vitejs/plugin-react-swc\";\n+import path from \"path\";\n+import { componentTagger } from \"lovable-tagger\";\n+\n+// https://vitejs.dev/config/\n+export default defineConfig(({ mode }) => ({\n+  server: {\n+    host: \"::\",\n+    port: 8080,\n+  },\n+  plugins: [react(), mode === \"development\" && componentTagger()].filter(Boolean),\n+  resolve: {\n+    alias: {\n+      \"@\": path.resolve(__dirname, \"./src\"),\n+    },\n+  },\n+}));\n"
+                }
+            ],
+            "date": 1763825418443,
+            "name": "Commit-0",
+            "content": "import { defineConfig } from \"vite\";\nimport react from \"@vitejs/plugin-react-swc\";\nimport path from \"path\";\nimport { componentTagger } from \"lovable-tagger\";\n\n// https://vitejs.dev/config/\nexport default defineConfig(({ mode }) => ({\n  server: {\n    host: \"::\",\n    port: 8080,\n  },\n  plugins: [react(), mode === \"development\" && componentTagger()].filter(Boolean),\n  resolve: {\n    alias: {\n      \"@\": path.resolve(__dirname, \"./src\"),\n    },\n  },\n}));\n"
+        }
+    ]
+}

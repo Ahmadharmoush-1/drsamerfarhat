@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pages/Index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1763825318423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1763826284939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,18 +8,20 @@\n import Footer from \"@/components/Footer\";\r\n \r\n const Index = () => {\r\n   return (\r\n-    <div className=\"min-h-screen\">\r\n+    <div className=\"min-h-screen bg-background\">\r\n       <Navbar />\r\n-      <Hero />\r\n-      <About />\r\n-      <Services />\r\n-      <Gallery />\r\n-      <Appointment />\r\n-      <Testimonials />\r\n+      <main>\r\n+        <Hero />\r\n+        <About />\r\n+        <Services />\r\n+        <Gallery />\r\n\\ No newline at end of file\n+        <Appointment />\r\n+        <Testimonials />\r\n+      </main>\r\n       <Footer />\r\n     </div>\r\n   );\r\n };\r\n \r\n-export default Index;\n+export default Index;\r\n"
+                }
+            ],
+            "date": 1763825318423,
+            "name": "Commit-0",
+            "content": "import Navbar from \"@/components/Navbar\";\r\nimport Hero from \"@/components/Hero\";\r\nimport About from \"@/components/About\";\r\nimport Services from \"@/components/Services\";\r\nimport Gallery from \"@/components/Gallery\";\r\nimport Appointment from \"@/components/Appointment\";\r\nimport Testimonials from \"@/components/Testimonials\";\r\nimport Footer from \"@/components/Footer\";\r\n\r\nconst Index = () => {\r\n  return (\r\n    <div className=\"min-h-screen\">\r\n      <Navbar />\r\n      <Hero />\r\n      <About />\r\n      <Services />\r\n      <Gallery />\r\n      <Appointment />\r\n      <Testimonials />\r\n      <Footer />\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Index;"
+        }
+    ]
+}
