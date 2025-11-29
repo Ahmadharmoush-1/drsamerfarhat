@@ -45,14 +45,14 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-8 md:py-12 bg-secondary/30">
+    <section id="about" className="py-6 md:py-8 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-5 gap-6 items-start">
-
+        <div className="grid md:grid-cols-5 gap-4 items-start">
+          
           {/* Image */}
           <div className="md:col-span-2 animate-slide-in-left flex justify-center">
-            <div className="relative max-w-[240px] w-full">
-              <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-md">
+            <div className="relative max-w-[180px] w-full">
+              <div className="rounded-xl overflow-hidden shadow-md h-[240px] md:h-[300px]">
                 <img
                   src="/photos/drlogo2.jpg"
                   alt="Dr. Samer Farhat"
@@ -60,46 +60,50 @@ const About = () => {
                 />
               </div>
 
-              <div className="absolute -bottom-3 -right-3 bg-primary text-primary-foreground px-3 py-2 rounded-lg shadow-md text-center">
-                <div className="text-xl font-bold">9+</div>
-                <div className="text-[10px]">Years Experience</div>
+              <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground px-2.5 py-1.5 rounded-lg shadow-md text-center">
+                <div className="text-lg font-bold">9+</div>
+                <div className="text-[9px]">Years Experience</div>
               </div>
             </div>
           </div>
 
           {/* Content */}
           <div className="md:col-span-3 animate-slide-in-right">
-            <div className="mb-5">
-              <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
+            <div className="mb-3">
+              <h3 className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
                 About Dr. Samer Farhat
               </h3>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-1">
                 Your Trusted Dental Specialist
               </h2>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                With 9+ years of expertise in advanced dentistry, Dr. Farhat provides world-class care with modern techniques and high-precision treatments.
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                With 9+ years of expertise in advanced dentistry, Dr. Farhat
+                provides world-class care with modern techniques and high-precision treatments.
               </p>
             </div>
 
             {/* Credentials */}
-            <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
+            <div className="grid sm:grid-cols-2 gap-2 md:gap-3">
               {credentials.map((detail, index) => {
                 const Icon = detail.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-card p-4 rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                    className="bg-card p-3 rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-primary" />
+                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-primary" />
                       </div>
                       <h3 className="text-sm font-semibold">{detail.title}</h3>
                     </div>
 
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-1">
                       {detail.items.map((item, i) => (
-                        <li key={i} className="text-xs flex items-start gap-1 text-muted-foreground">
+                        <li
+                          key={i}
+                          className="text-xs flex items-start gap-1 text-muted-foreground"
+                        >
                           <span className="text-primary">•</span>
                           {item}
                         </li>

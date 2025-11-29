@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Clock, Calendar } from "lucide-react";
 
 const OpeningHours = () => {
-  const [status, setStatus] = useState<{
-    isOpen: boolean;
-    message: string;
-    nextChange: string;
-  }>({ isOpen: false, message: "", nextChange: "" });
+  const [status, setStatus] = useState({
+    isOpen: false,
+    message: "",
+    nextChange: "",
+  });
 
-  // Opening hours configuration (24-hour format)
+  // Opening hours (24h format)
   const schedule = {
     monday: { open: 9, close: 19 },
     tuesday: { open: 9, close: 19 },
@@ -16,7 +16,7 @@ const OpeningHours = () => {
     thursday: { open: 9, close: 19 },
     friday: { open: 9, close: 19 },
     saturday: { open: 10, close: 14 },
-    sunday: null, // Closed
+    sunday: null,
   };
 
   useEffect(() => {
@@ -24,13 +24,11 @@ const OpeningHours = () => {
       const now = new Date();
       const currentDay = now
         .toLocaleDateString("en-US", { weekday: "long" })
-        .toLowerCase() as keyof typeof schedule;
+        .toLowerCase();
       const currentHour = now.getHours();
+      const today = schedule[currentDay];
 
-      const todaySchedule = schedule[currentDay];
-
-      if (!todaySchedule) {
-        // Closed on Sunday
+      if (!today) {
         setStatus({
           isOpen: false,
           message: "Closed",
@@ -39,38 +37,39 @@ const OpeningHours = () => {
         return;
       }
 
-      const { open, close } = todaySchedule;
+      if (currentHour >= today.open && currentHour < today.close) {
+        const closingTime =
+          today.close > 12 ? `${today.close - 12}:00 PM` : `${today.close}:00 AM`;
 
-      if (currentHour >= open && currentHour < close) {
-        // Currently open
-        const closingTime = close > 12 ? `${close - 12}:00 PM` : `${close}:00 AM`;
         setStatus({
           isOpen: true,
           message: "Open Now",
           nextChange: `Closes at ${closingTime}`,
         });
-      } else if (currentHour < open) {
-        // Before opening
-        const openingTime = open > 12 ? `${open - 12}:00 PM` : `${open}:00 AM`;
+      } else if (currentHour < today.open) {
+        const openingTime =
+          today.open > 12 ? `${today.open - 12}:00 PM` : `${today.open}:00 AM`;
+
         setStatus({
           isOpen: false,
           message: "Closed",
           nextChange: `Opens today at ${openingTime}`,
         });
       } else {
-        // After closing
-        const tomorrow = new Date(now);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        const tomorrowDay = tomorrow
-          .toLocaleDateString("en-US", { weekday: "long" })
-          .toLowerCase() as keyof typeof schedule;
-        const tomorrowSchedule = schedule[tomorrowDay];
+        const nextDay = new Date(now);
+        nextDay.setDate(now.getDate() + 1);
 
-        if (tomorrowSchedule) {
+        const name = nextDay
+          .toLocaleDateString("en-US", { weekday: "long" })
+          .toLowerCase();
+        const tomorrow = schedule[name];
+
+        if (tomorrow) {
           const openingTime =
-            tomorrowSchedule.open > 12
-              ? `${tomorrowSchedule.open - 12}:00 PM`
-              : `${tomorrowSchedule.open}:00 AM`;
+            tomorrow.open > 12
+              ? `${tomorrow.open - 12}:00 PM`
+              : `${tomorrow.open}:00 AM`;
+
           setStatus({
             isOpen: false,
             message: "Closed",
@@ -87,60 +86,58 @@ const OpeningHours = () => {
     };
 
     checkStatus();
-    const interval = setInterval(checkStatus, 60000); // Check every minute
-
+    const interval = setInterval(checkStatus, 60000);
     return () => clearInterval(interval);
   }, []);
 
   const days = [
-    { day: "Monday - Friday", hours: "9:00 AM - 7:00 PM" },
+    { day: "Mon - Fri", hours: "9:00 AM - 7:00 PM" },
     { day: "Saturday", hours: "10:00 AM - 2:00 PM" },
     { day: "Sunday", hours: "Closed" },
   ];
 
   return (
-    <div className="bg-card rounded-xl border border-border p-5 shadow-sm animate-fade-in-up">
-      {/* Live Status */}
-      <div className="flex items-center justify-between mb-4 pb-4 border-b border-border">
-        <div className="flex items-center gap-3">
+    <div className="bg-card rounded-lg border border-border p-4 shadow-sm animate-fade-in-up">
+      
+      {/* Status */}
+      <div className="flex items-center justify-between mb-3 pb-3 border-b border-border">
+        <div className="flex items-center gap-2">
           <div
-            className={`w-3 h-3 rounded-full ${
+            className={`w-2.5 h-2.5 rounded-full ${
               status.isOpen ? "bg-green-500" : "bg-red-500"
             } animate-pulse`}
           />
           <div>
-            <p className="text-sm font-semibold text-foreground">{status.message}</p>
-            <p className="text-xs text-muted-foreground">{status.nextChange}</p>
+            <p className="text-sm font-semibold">{status.message}</p>
+            <p className="text-[11px] text-muted-foreground">{status.nextChange}</p>
           </div>
         </div>
-        <Clock className="w-5 h-5 text-primary" />
+        <Clock className="w-4 h-4 text-primary" />
       </div>
 
-      {/* Opening Hours Schedule */}
-      <div className="space-y-2.5">
-        <div className="flex items-center gap-2 mb-3">
-          <Calendar className="w-4 h-4 text-primary" />
-          <h4 className="text-sm font-semibold text-foreground">Opening Hours</h4>
+      {/* Hours */}
+      <div className="space-y-2">
+        <div className="flex items-center gap-1 mb-2">
+          <Calendar className="w-3.5 h-3.5 text-primary" />
+          <h4 className="text-xs font-semibold">Opening Hours</h4>
         </div>
-        {days.map((schedule, index) => (
-          <div
-            key={index}
-            className="flex justify-between items-center text-xs py-1.5"
-          >
-            <span className="text-muted-foreground font-medium">{schedule.day}</span>
-            <span className="text-foreground font-semibold">{schedule.hours}</span>
+
+        {days.map((item, i) => (
+          <div key={i} className="flex justify-between text-[11px] py-1">
+            <span className="text-muted-foreground">{item.day}</span>
+            <span className="text-foreground font-semibold">{item.hours}</span>
           </div>
         ))}
       </div>
 
-      {/* Call to Action */}
-      <div className="mt-4 pt-4 border-t border-border">
+      {/* CTA */}
+      <div className="mt-3 pt-3 border-t border-border">
         <a
           href="tel:+96176026004"
-          className="flex items-center justify-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+          className="flex items-center justify-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition"
         >
-          <Clock className="w-4 h-4" />
-          Call to Schedule: +961 76 026 004
+          <Clock className="w-3.5 h-3.5" />
+          Call: +961 76 026 004
         </a>
       </div>
     </div>

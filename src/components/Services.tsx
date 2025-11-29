@@ -29,14 +29,15 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-8 md:py-12 bg-background">
+    <section id="services" className="py-6 md:py-8 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6 md:mb-8 animate-fade-in-up">
-          <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
+        <div className="text-center max-w-xl mx-auto mb-6 animate-fade-in-up">
+          <h3 className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
             Our Services
           </h3>
-          <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-foreground mb-2">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1">
             Comprehensive Dental Solutions
           </h2>
           <p className="text-xs md:text-sm text-muted-foreground">
@@ -49,11 +50,11 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-card p-4 md:p-5 rounded-xl border border-border hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-slide-up"
-              style={{ animationDelay: `${index * 120}ms` }}
+              className="group bg-card p-3 md:p-4 rounded-xl border border-border hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-slide-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-all duration-300">
-                <service.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+              <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/20 transition-all duration-300">
+                <service.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
 
               <h3 className="text-sm md:text-base font-semibold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
