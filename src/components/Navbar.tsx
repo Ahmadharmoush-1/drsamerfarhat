@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone, Moon, Sun } from "lucide-react";
+import { Menu, X, Phone, Instagram, MapPin, MessageCircle } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
@@ -18,47 +18,94 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
         {/* TOP BAR */}
         <div className="flex justify-between items-center h-14 md:h-16">
 
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
-              <img
-                src="/photos/drlogo.jpg"
-                alt="Dr. Samer Farhat Logo"
-                className="w-full h-full object-cover"
-              />
+          {/* LEFT SIDE: Logo + Social Icons */}
+          <div className="flex items-center gap-4">
+
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
+                <img
+                  src="/photos/drlogo.jpg"
+                  alt="Dr. Samer Farhat Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold text-sm md:text-base text-foreground">
+                  Dr. Samer Farhat
+                </span>
+                <span className="text-[10px] md:text-xs text-muted-foreground">
+                  Dental Specialist
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="font-semibold text-sm md:text-base text-foreground">Dr. Samer Farhat</span>
-              <span className="text-[10px] md:text-xs text-muted-foreground">Dental Specialist</span>
+
+            {/* Social Icons (closer + brand colors) */}
+            <div className="flex items-center gap-1.5 ml-1">
+
+              {/* Instagram */}
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                className="p-1.5 rounded-full transition-all hover:scale-110"
+              >
+                <Instagram
+                  className="w-5 h-5"
+                  style={{ color: "#E1306C" }}
+                />
+              </a>
+
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/96100000000"
+                target="_blank"
+                className="p-1.5 rounded-full transition-all hover:scale-110"
+              >
+                <MessageCircle
+                  className="w-5 h-5"
+                  style={{ color: "#25D366" }}
+                />
+              </a>
+
+              {/* Location */}
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                className="p-1.5 rounded-full transition-all hover:scale-110"
+              >
+                <MapPin
+                  className="w-5 h-5"
+                  style={{ color: "#DB4437" }}
+                />
+              </a>
             </div>
           </div>
 
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-3">
 
-            {/* 🌙 iOS Dark Mode Toggle (Mobile) */}
+            {/* Mobile iOS Toggle */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="relative md:hidden w-12 h-6 rounded-full transition-all duration-300
                          flex items-center px-1
-                         shadow-inner
-                         bg-secondary/40"
+                         shadow-inner bg-secondary/40"
             >
-              {/* Glow */}
               <div
                 className={`absolute inset-0 rounded-full blur-md transition-all duration-300 ${
-                  theme === "dark" ? "bg-blue-500/30 scale-110" : "bg-yellow-400/20 scale-75"
+                  theme === "dark"
+                    ? "bg-blue-500/30 scale-110"
+                    : "bg-yellow-400/20 scale-75"
                 }`}
               />
-
-              {/* Circle Knob */}
               <div
                 className={`h-5 w-5 rounded-full transition-all duration-300 transform
-                            ${theme === "dark" ? "translate-x-6 bg-blue-500" : "translate-x-0 bg-yellow-400"}
-                            shadow-md`}
+                  ${theme === "dark" ? "translate-x-6 bg-blue-500" : "translate-x-0 bg-yellow-400"}
+                  shadow-md`}
               />
             </button>
 
@@ -73,28 +120,43 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
 
-              <button onClick={() => scrollToSection("home")} className="text-sm font-medium hover:text-primary transition-colors">Home</button>
-              <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors">About</button>
-              <button onClick={() => scrollToSection("services")} className="text-sm font-medium hover:text-primary transition-colors">Services</button>
-              <button onClick={() => scrollToSection("gallery")} className="text-sm font-medium hover:text-primary transition-colors">Gallery</button>
-              <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium hover:text-primary transition-colors">Testimonials</button>
+              <button onClick={() => scrollToSection("home")} className="text-sm font-medium hover:text-primary transition-colors">
+                Home
+              </button>
+
+              <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors">
+                About
+              </button>
+
+              <button onClick={() => scrollToSection("services")} className="text-sm font-medium hover:text-primary transition-colors">
+                Services
+              </button>
+
+              <button onClick={() => scrollToSection("gallery")} className="text-sm font-medium hover:text-primary transition-colors">
+                Gallery
+              </button>
+
+              <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium hover:text-primary transition-colors">
+                Testimonials
+              </button>
 
               {/* Desktop Dark Mode Toggle */}
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="relative w-12 h-6 rounded-full transition-all duration-300
-                           flex items-center px-1
-                           shadow-inner bg-secondary/40"
+                           flex items-center px-1 shadow-inner bg-secondary/40"
               >
                 <div
                   className={`absolute inset-0 rounded-full blur-md transition-all duration-300 ${
-                    theme === "dark" ? "bg-blue-500/30 scale-110" : "bg-yellow-400/20 scale-75"
+                    theme === "dark"
+                      ? "bg-blue-500/30 scale-110"
+                      : "bg-yellow-400/20 scale-75"
                   }`}
                 />
                 <div
                   className={`h-5 w-5 rounded-full transition-all duration-300 transform
-                              ${theme === "dark" ? "translate-x-6 bg-blue-500" : "translate-x-0 bg-yellow-400"}
-                              shadow-md`}
+                    ${theme === "dark" ? "translate-x-6 bg-blue-500" : "translate-x-0 bg-yellow-400"}
+                    shadow-md`}
                 />
               </button>
 
