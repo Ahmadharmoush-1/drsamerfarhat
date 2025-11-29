@@ -7,7 +7,7 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Jackie Nails and Beauty ",
+      name: "Jackie Nails and Beauty",
       treatment: "Hollywood Smile",
       rating: 5,
       text: "I recommend everyone to visit Dr Samer , best in town",
@@ -17,11 +17,11 @@ const Testimonials = () => {
       name: "Anthonygh89",
       treatment: "Dental Implants",
       rating: 5,
-      text: "Smile it lets your teeth breathe! Dr. Samer Farhat is an exceptional dentist who transformed my smile with dental implants. Highly recommended!",
+      text: "Smile it lets your teeth breathe! Dr. Samer Farhat is an exceptional dentist.",
       video: "/videos/video2.mp4",
     },
     {
-      name: "Christelle bou ghannam ",
+      name: "Christelle bou ghannam",
       treatment: "Root Canal Treatment",
       rating: 5,
       text: "Now I can make that smile with confidence.",
@@ -30,53 +30,50 @@ const Testimonials = () => {
       name: "Mostafa",
       treatment: "Cosmetic Dentistry",
       rating: 5,
-      text: "The teeth whitening and cosmetic work exceeded my expectations. Dr. Farhat is a true artist. My smile has never looked better!",
+      text: "Whitening & cosmetic work exceeded my expectations. Amazing results!",
     },
   ];
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  const nextSlide = () =>
+    setCurrentIndex((i) => (i + 1) % testimonials.length);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const prevSlide = () =>
+    setCurrentIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
 
-  // Component to render video or text (used for both desktop & mobile)
-  const renderContent = (testimonial) => {
-    if (!testimonial.video) {
+  const renderContent = (t) => {
+    if (!t.video) {
       return (
-        <div className="p-6">
-          <Quote className="w-8 h-8 text-primary/30 mb-3" />
+        <div className="p-4">
+          <Quote className="w-7 h-7 text-primary/30 mb-2" />
 
-          <div className="flex gap-0.5 mb-3">
-            {[...Array(testimonial.rating)].map((_, i) => (
+          <div className="flex gap-0.5 mb-2">
+            {[...Array(t.rating)].map((_, i) => (
               <Star key={i} className="w-4 h-4 fill-primary text-primary" />
             ))}
           </div>
 
-          <p className="text-sm text-muted-foreground mb-4 leading-relaxed italic">
-            "{testimonial.text}"
+          <p className="text-xs md:text-sm text-muted-foreground italic leading-relaxed">
+            "{t.text}"
           </p>
         </div>
       );
     }
 
-    const isYouTube = testimonial.video.includes("youtube.com");
+    const isYouTube = t.video.includes("youtube.com");
 
     return (
       <div className="aspect-video w-full">
         {isYouTube ? (
           <iframe
-            src={`${testimonial.video}?mute=1`}
-            title={`${testimonial.name} testimonial`}
+            src={`${t.video}?mute=1`}
+            title={t.name}
             className="w-full h-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         ) : (
           <video
-            src={testimonial.video}
+            src={t.video}
             muted
             controls
             playsInline
@@ -88,80 +85,75 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-12 md:py-20 bg-secondary/30">
+    <section id="testimonials" className="py-8 md:py-12 bg-secondary/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12 animate-fade-in-up">
-          <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">
+        <div className="text-center max-w-lg mx-auto mb-6 md:mb-8 animate-fade-in-up">
+          <h3 className="text-xs font-semibold text-primary uppercase mb-1">
             Testimonials
           </h3>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-1">
             What Our Patients Say
           </h2>
-          <p className="text-sm md:text-base text-muted-foreground">
-            Read real experiences from our satisfied patients.
+          <p className="text-xs md:text-sm text-muted-foreground">
+            Real experiences from satisfied patients.
           </p>
         </div>
 
-        {/* Desktop View - Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6">
-          {testimonials.map((testimonial, index) => (
+        {/* DESKTOP GRID */}
+        <div className="hidden md:grid md:grid-cols-2 gap-4">
+          {testimonials.map((t, index) => (
             <div
               key={index}
-              className="bg-card rounded-2xl border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500 animate-fade-in-up overflow-hidden"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="bg-card rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 animate-fade-in-up overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* CONTENT (video or text) */}
-              {renderContent(testimonial)}
+              {renderContent(t)}
 
-              {/* Patient Info */}
               <div
                 className={`flex items-center gap-3 ${
-                  testimonial.video ? "p-4 bg-card" : "pt-3"
-                } border-t border-border ${!testimonial.video && "px-6 pb-6"}`}
+                  t.video ? "p-3 bg-card" : "pt-2 px-4 pb-4"
+                } border-t border-border`}
               >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary">
-                    {testimonial.name.split(" ").map((n) => n[0]).join("")}
+                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-xs font-semibold text-primary">
+                    {t.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </span>
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {testimonial.treatment}
-                  </p>
+                  <p className="text-sm font-semibold">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.treatment}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Mobile View - Slider */}
+        {/* MOBILE SLIDER */}
         <div className="md:hidden">
-          <div className="bg-card rounded-2xl border border-border shadow-lg animate-fade-in-up overflow-hidden">
+          <div className="bg-card rounded-xl border border-border shadow-md animate-fade-in-up overflow-hidden">
             {renderContent(testimonials[currentIndex])}
 
-            {/* Patient Info */}
             <div
               className={`flex items-center gap-3 ${
-                testimonials[currentIndex].video ? "p-4 bg-card" : "pt-3"
-              } border-t border-border ${
-                !testimonials[currentIndex].video && "px-6 pb-6"
-              }`}
+                testimonials[currentIndex].video ? "p-3 bg-card" : "pt-2 px-4 pb-4"
+              } border-t border-border`}
             >
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <span className="text-sm font-semibold text-primary">
+              <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-xs font-semibold text-primary">
                   {testimonials[currentIndex].name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </span>
               </div>
+
               <div>
-                <p className="text-sm font-semibold text-foreground">
+                <p className="text-sm font-semibold">
                   {testimonials[currentIndex].name}
                 </p>
                 <p className="text-xs text-muted-foreground">
@@ -171,24 +163,24 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex justify-center items-center gap-3 mt-6">
+          {/* NAV */}
+          <div className="flex justify-center items-center gap-3 mt-4">
             <Button
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="w-9 h-9 rounded-full"
+              className="w-8 h-8 rounded-full"
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
 
-            <div className="flex gap-1.5">
+            <div className="flex gap-1">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? "bg-primary w-6" : "bg-border"
+                    index === currentIndex ? "bg-primary w-5" : "bg-border"
                   }`}
                 />
               ))}
@@ -198,7 +190,7 @@ const Testimonials = () => {
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="w-9 h-9 rounded-full"
+              className="w-8 h-8 rounded-full"
             >
               <ChevronRight className="w-4 h-4" />
             </Button>

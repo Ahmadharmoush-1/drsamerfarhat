@@ -1,5 +1,4 @@
-import { Award, Users, Clock, Stethoscope } from "lucide-react";
-import { GraduationCap, Briefcase, FileCheck } from "lucide-react";
+import { GraduationCap, Briefcase, FileCheck, Award } from "lucide-react";
 
 const About = () => {
   const credentials = [
@@ -8,7 +7,7 @@ const About = () => {
       title: "Education",
       items: [
         "Doctor of Dental Surgery (DDS)",
-        "Lebanese University - Faculty of Dentistry",
+        "Lebanese University - Dentistry",
         "Advanced Endodontics Certification",
         "Cosmetic Dentistry Specialization",
       ],
@@ -39,21 +38,21 @@ const About = () => {
       items: [
         "9+ Years Clinical Practice",
         "5000+ Successful Procedures",
-        "Specialist in Root Canal Treatments",
-        "Hollywood Smile Transformations Expert",
+        "Root Canal Specialist",
+        "Hollywood Smile Expert",
       ],
     },
   ];
 
   return (
-    <section id="about" className="py-12 md:py-20 bg-secondary/30">
+    <section id="about" className="py-8 md:py-12 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
+        <div className="grid md:grid-cols-5 gap-6 items-start">
 
-          {/* Doctor Image */}
-          <div className="md:col-span-2 animate-slide-in-left">
-            <div className="relative max-w-sm mx-auto">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
+          {/* Image */}
+          <div className="md:col-span-2 animate-slide-in-left flex justify-center">
+            <div className="relative max-w-[240px] w-full">
+              <div className="aspect-[3/4] rounded-xl overflow-hidden shadow-md">
                 <img
                   src="/photos/drlogo2.jpg"
                   alt="Dr. Samer Farhat"
@@ -61,56 +60,48 @@ const About = () => {
                 />
               </div>
 
-              <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-4 py-3 rounded-xl shadow-lg animate-pop-in">
-                <div className="text-2xl font-bold">9+</div>
-                <div className="text-xs font-medium">Years Experience</div>
+              <div className="absolute -bottom-3 -right-3 bg-primary text-primary-foreground px-3 py-2 rounded-lg shadow-md text-center">
+                <div className="text-xl font-bold">9+</div>
+                <div className="text-[10px]">Years Experience</div>
               </div>
             </div>
           </div>
 
-          {/* About Content */}
+          {/* Content */}
           <div className="md:col-span-3 animate-slide-in-right">
-            <div className="mb-8">
-              <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">
+            <div className="mb-5">
+              <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-1">
                 About Dr. Samer Farhat
               </h3>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
                 Your Trusted Dental Specialist
               </h2>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                With over 9 years of expertise in advanced dentistry, Dr. Samer Farhat
-                provides world-class care using the latest technology and modern treatment
-                techniques to deliver exceptional results with comfort and precision.
+                With 9+ years of expertise in advanced dentistry, Dr. Farhat provides world-class care with modern techniques and high-precision treatments.
               </p>
             </div>
 
-            {/* Credentials Grid (same style as Credentials component) */}
-            <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+            {/* Credentials */}
+            <div className="grid sm:grid-cols-2 gap-3 md:gap-4">
               {credentials.map((detail, index) => {
                 const Icon = detail.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-card p-5 rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-500 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 100}ms` }}
+                    className="bg-card p-4 rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center">
                         <Icon className="w-5 h-5 text-primary" />
                       </div>
-                      <h3 className="text-base font-semibold text-foreground">
-                        {detail.title}
-                      </h3>
+                      <h3 className="text-sm font-semibold">{detail.title}</h3>
                     </div>
 
-                    <ul className="space-y-2">
-                      {detail.items.map((item, itemIndex) => (
-                        <li
-                          key={itemIndex}
-                          className="text-xs text-muted-foreground flex items-start gap-2"
-                        >
-                          <span className="text-primary mt-1">•</span>
-                          <span>{item}</span>
+                    <ul className="space-y-1.5">
+                      {detail.items.map((item, i) => (
+                        <li key={i} className="text-xs flex items-start gap-1 text-muted-foreground">
+                          <span className="text-primary">•</span>
+                          {item}
                         </li>
                       ))}
                     </ul>
