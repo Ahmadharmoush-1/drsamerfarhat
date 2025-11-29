@@ -1,64 +1,124 @@
 import { Award, Users, Clock, Stethoscope } from "lucide-react";
+import { GraduationCap, Briefcase, FileCheck } from "lucide-react";
 
 const About = () => {
-  const stats = [
-    { icon: Award, label: "Years Experience", value: "9+" },
-    { icon: Users, label: "Happy Patients", value: "2000+" },
-    { icon: Clock, label: "Working Hours", value: "Mon-Sat" },
-    { icon: Stethoscope, label: "Specialties", value: "4+" },
+  const credentials = [
+    {
+      icon: GraduationCap,
+      title: "Education",
+      items: [
+        "Doctor of Dental Surgery (DDS)",
+        "Lebanese University - Faculty of Dentistry",
+        "Advanced Endodontics Certification",
+        "Cosmetic Dentistry Specialization",
+      ],
+    },
+    {
+      icon: FileCheck,
+      title: "Certifications",
+      items: [
+        "Board Certified Endodontist",
+        "Advanced Aesthetic Dentistry",
+        "Digital Smile Design Expert",
+        "Dental Implantology Certified",
+      ],
+    },
+    {
+      icon: Award,
+      title: "Memberships",
+      items: [
+        "Lebanese Dental Association",
+        "International Congress of Oral Implantologists",
+        "American Academy of Cosmetic Dentistry",
+        "European Society of Endodontology",
+      ],
+    },
+    {
+      icon: Briefcase,
+      title: "Experience",
+      items: [
+        "9+ Years Clinical Practice",
+        "5000+ Successful Procedures",
+        "Specialist in Root Canal Treatments",
+        "Hollywood Smile Transformations Expert",
+      ],
+    },
   ];
 
   return (
     <section id="about" className="py-12 md:py-20 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Image */}
-           <div className="order-2 md:order-1 flex justify-center animate-slide-in-left">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-primary/10 rounded-2xl blur-xl transition-all duration-500 group-hover:bg-primary/20" />
-              <img 
-                src="/photos/drlogo2.jpg" 
-                alt="Dr. Samer Farhat Portrait"
-                 className="relative w-full max-w-[220px] sm:max-w-[320px] rounded-2xl shadow-lg transition-transform duration-500 group-hover:scale-102"
-              />
-              <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-xl shadow-lg animate-pop-in" style={{ animationDelay: '400ms' }}>
-                <p className="text-xs font-semibold">9+ Years</p>
-                <p className="text-[10px]">Experience</p>
+        <div className="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
+
+          {/* Doctor Image */}
+          <div className="md:col-span-2 animate-slide-in-left">
+            <div className="relative max-w-sm mx-auto">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="/photos/drlogo2.jpg"
+                  alt="Dr. Samer Farhat"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-4 py-3 rounded-xl shadow-lg animate-pop-in">
+                <div className="text-2xl font-bold">9+</div>
+                <div className="text-xs font-medium">Years Experience</div>
               </div>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="order-1 md:order-2 space-y-5 animate-slide-in-right">
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-primary uppercase tracking-wide">About Dr. Samer Farhat</h3>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+          {/* About Content */}
+          <div className="md:col-span-3 animate-slide-in-right">
+            <div className="mb-8">
+              <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">
+                About Dr. Samer Farhat
+              </h3>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
                 Your Trusted Dental Specialist
               </h2>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                With over 9 years of expertise in advanced dentistry, Dr. Samer Farhat
+                provides world-class care using the latest technology and modern treatment
+                techniques to deliver exceptional results with comfort and precision.
+              </p>
             </div>
 
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              With over 9 years of experience in advanced dentistry, Dr. Samer Farhat specializes in transforming smiles and providing comprehensive dental care. His expertise spans from complex root canal treatments to aesthetic smile makeovers.
-            </p>
+            {/* Credentials Grid (same style as Credentials component) */}
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+              {credentials.map((detail, index) => {
+                const Icon = detail.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-card p-5 rounded-xl border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-500 animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-base font-semibold text-foreground">
+                        {detail.title}
+                      </h3>
+                    </div>
 
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Using state-of-the-art technology and modern techniques, Dr. Farhat ensures every patient receives personalized, pain-free treatment in a comfortable environment.
-            </p>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-3 md:gap-4 pt-4">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index}
-                  className="bg-background p-3 md:p-4 rounded-xl border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-primary mb-2" />
-                  <p className="text-lg md:text-xl font-bold text-foreground">{stat.value}</p>
-                  <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              ))}
+                    <ul className="space-y-2">
+                      {detail.items.map((item, itemIndex) => (
+                        <li
+                          key={itemIndex}
+                          className="text-xs text-muted-foreground flex items-start gap-2"
+                        >
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
+
           </div>
         </div>
       </div>

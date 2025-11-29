@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar, Clock, User, Mail, Phone } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import OpeningHours from "./OpeningHours";
 
 const Appointment = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const Appointment = () => {
 
   return (
     <section id="appointment" className="py-12 md:py-20 bg-background">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10 animate-fade-in-up">
           <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Book Now</h3>
@@ -41,99 +42,106 @@ const Appointment = () => {
           </p>
         </div>
 
-        {/* Form */}
-        <div className="bg-card border border-border rounded-2xl shadow-lg p-5 md:p-8 animate-zoom-in hover:shadow-xl transition-shadow duration-500">
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Opening Hours Widget */}
+          <div className="md:col-span-1">
+            <OpeningHours />
+          </div>
+
+          {/* Form */}
+          <div className="md:col-span-2 bg-card border border-border rounded-2xl shadow-lg p-5 md:p-8 animate-zoom-in hover:shadow-xl transition-shadow duration-500">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-sm font-medium flex items-center gap-2">
+                    <User className="w-4 h-4 text-primary" />
+                    Full Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    required
+                    className="h-10"
+                  />
+                </div>
+
+                {/* <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-primary" />
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com"
+                    required
+                    className="h-10"
+                  />
+                </div> */}
+              </div>
+
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium flex items-center gap-2">
-                  <User className="w-4 h-4 text-primary" />
-                  Full Name
+                <Label htmlFor="phone" className="text-sm font-medium flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-primary" />
+                  Phone Number
                 </Label>
                 <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
                   onChange={handleChange}
-                  placeholder="John Doe"
+                  placeholder="+961 XX XXX XXX"
                   required
                   className="h-10"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-primary" />
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  required
-                  className="h-10"
-                />
-              </div>
-            </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="date" className="text-sm font-medium flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-primary" />
+                    Preferred Date
+                  </Label>
+                  <Input
+                    id="date"
+                    name="date"
+                    type="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    required
+                    className="h-10"
+                  />
+                </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="text-sm font-medium flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary" />
-                Phone Number
-              </Label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="+961 XX XXX XXX"
-                required
-                className="h-10"
-              />
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="date" className="text-sm font-medium flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-primary" />
-                  Preferred Date
-                </Label>
-                <Input
-                  id="date"
-                  name="date"
-                  type="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                  className="h-10"
-                />
+                <div className="space-y-2">
+                  <Label htmlFor="time" className="text-sm font-medium flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-primary" />
+                    Preferred Time
+                  </Label>
+                  <Input
+                    id="time"
+                    name="time"
+                    type="time"
+                    value={formData.time}
+                    onChange={handleChange}
+                    required
+                    className="h-10"
+                  />
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="time" className="text-sm font-medium flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-primary" />
-                  Preferred Time
-                </Label>
-                <Input
-                  id="time"
-                  name="time"
-                  type="time"
-                  value={formData.time}
-                  onChange={handleChange}
-                  required
-                  className="h-10"
-                />
-              </div>
-            </div>
-
-           <Button type="submit" className="w-full h-11 text-sm font-medium shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
-              Request Appointment
-            </Button>
-          </form>
+              <Button type="submit" className="w-full h-11 text-sm font-medium shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
+                Request Appointment
+              </Button>
+            </form>
+          </div>
         </div>
 
         {/* Contact Info */}

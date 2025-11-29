@@ -49,7 +49,7 @@ const Navbar = () => {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/drsamerfarhat/"
                 target="_blank"
                 className="p-1.5 rounded-full transition-all hover:scale-110"
               >
@@ -61,7 +61,7 @@ const Navbar = () => {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/96100000000"
+                href="https://wa.me/96176026004"
                 target="_blank"
                 className="p-1.5 rounded-full transition-all hover:scale-110"
               >
@@ -73,7 +73,7 @@ const Navbar = () => {
 
               {/* Location */}
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/place/Mazen+Pharmacy+Chiyah/@33.8577128,35.5172383,236m/data=!3m1!1e3!4m14!1m7!3m6!1s0x151f1777408ae429:0x65dfd6219c0a569f!2sMazen+Pharmacy+Chiyah!8m2!3d33.8579666!4d35.5170795!16s%2Fg%2F1tfn_v38!3m5!1s0x151f1777408ae429:0x65dfd6219c0a569f!8m2!3d33.8579666!4d35.5170795!16s%2Fg%2F1tfn_v38?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 className="p-1.5 rounded-full transition-all hover:scale-110"
               >

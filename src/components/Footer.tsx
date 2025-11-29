@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -66,30 +66,33 @@ const Footer = () => {
             </div>
 
             <div className="flex gap-3">
-              <a 
+              {/* <a 
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300"
               >
                 <Facebook className="w-4 h-4" />
-              </a>
+              </a> */}
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/drsamerfarhat/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300"
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                 className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
+             <a
+  href="https://wa.me/96176026004"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-9 h-9 rounded-full bg-[#25D366]/10 flex items-center justify-center 
+             hover:bg-[#25D366] hover:text-white hover:scale-110 
+             transition-all duration-300"
+>
+  <MessageCircle className="w-4 h-4" />
+</a>
+
             </div>
           </div>
         </div>

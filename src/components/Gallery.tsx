@@ -9,8 +9,8 @@ const Gallery = () => {
   const images = [
     { src: "/photos/beforeafter1.jpg", alt: "Hollywood Smile Transformation" },
     { src: "/photos/beforeafter2.jpg", alt: "Teeth Whitening Results" },
-    { src: "/images/gallery-3.jpg", alt: "Dental Implant Success" },
-    { src: "/images/gallery-4.jpg", alt: "Cosmetic Dentistry Results" },
+    { src: "/photos/beforeafter3.jpg", alt: "Dental Implant Success" },
+    { src: "/photos/beforeafter4.jpg", alt: "Cosmetic Dentistry Results" },
   ];
 
   const nextSlide = () => {
