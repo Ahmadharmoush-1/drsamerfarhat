@@ -36,11 +36,12 @@ const Hero = () => {
                   Dr. Samer Farhat
 
                   <span
-  className="text-primary text-lg sm:text-xl md:text-2xl -ml-5 relative top-[4px]"
+  className="text-primary text-xl sm:text-2xl md:text-3xl ml-2 relative top-[4px]"
   style={{ fontFamily: "'Great Vibes', cursive" }}
 >
   For Dental Solution
 </span>
+
                 </span>
               </h1>
 
