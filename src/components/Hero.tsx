@@ -39,7 +39,7 @@ const Hero = () => {
                       className="text-primary text-2xl sm:text-3xl md:text-4xl -ml-3 relative top-[3px]"
                       style={{ fontFamily: "'Great Vibes', cursive" }}
                     >
-                      Dental Solution
+                      For Dental Solution
                     </span>
                   </span>
                 </h1>
