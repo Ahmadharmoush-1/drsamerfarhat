@@ -29,20 +29,21 @@ const Hero = () => {
                 Professional Dental Care
               </span>
             </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
                   Welcome to <br />
 
                   <span className="text-primary flex items-center">
                     Dr. Samer Farhat
 
                     <span
-                      className="text-primary text-2xl sm:text-3xl md:text-4xl -ml-5 relative top-[4px]"
+                      className="text-primary text-2xl sm:text-3xl md:text-4xl -ml-3 relative top-[3px]"
                       style={{ fontFamily: "'Great Vibes', cursive" }}
                     >
-                      For Dental Solution
+                      Dental Solution
                     </span>
                   </span>
                 </h1>
+
 
 
 
