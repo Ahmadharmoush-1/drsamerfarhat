@@ -9,12 +9,12 @@ const Footer = () => {
            <div className="space-y-3 animate-slide-in-left">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
-  <img 
-    src="/photos/drlogo.jpg"    // your logo path
-    alt="Dr. Samer Farhat Logo"
-    className="w-full h-full object-cover"
-  />
-</div>
+                <img 
+                  src="/photos/drlogo.jpg"    // your logo path
+                  alt="Dr. Samer Farhat Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
               <div>
                 <h3 className="font-semibold text-base text-foreground">Dr. Samer Farhat</h3>
@@ -42,9 +42,9 @@ const Footer = () => {
               +961 76 026 004
             </a>
 
-            <a href="mailto:info@drsamerfar hat.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <a href="mailto:info@drsamerfarhat.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-4 h-4 text-primary" />
-              info@drsamerfar hat.com
+              info@drsamerfarhat.com
             </a>
           </div>
 

@@ -22,26 +22,26 @@ const About = () => {
         "Dental Implantology Certified",
       ],
     },
-    {
-      icon: Award,
-      title: "Memberships",
-      items: [
-        "Lebanese Dental Association",
-        "International Congress of Oral Implantologists",
-        "American Academy of Cosmetic Dentistry",
-        "European Society of Endodontology",
-      ],
-    },
-    {
-      icon: Briefcase,
-      title: "Experience",
-      items: [
-        "9+ Years Clinical Practice",
-        "5000+ Successful Procedures",
-        "Root Canal Specialist",
-        "Hollywood Smile Expert",
-      ],
-    },
+    // {
+    //   icon: Award,
+    //   title: "Memberships",
+    //   items: [
+    //     "Lebanese Dental Association",
+    //     "International Congress of Oral Implantologists",
+    //     "American Academy of Cosmetic Dentistry",
+    //     "European Society of Endodontology",
+    //   ],
+    // },
+    // {
+    //   icon: Briefcase,
+    //   title: "Experience",
+    //   items: [
+    //     "9+ Years Clinical Practice",
+    //     "5000+ Successful Procedures",
+    //     "Root Canal Specialist",
+    //     "Hollywood Smile Expert",
+    //   ],
+    // },
   ];
 
   return (

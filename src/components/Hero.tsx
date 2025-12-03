@@ -29,11 +29,23 @@ const Hero = () => {
                 Professional Dental Care
               </span>
             </div>
+<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
+  Welcome to <br />
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
-              Welcome to <br />
-              <span className="text-primary">Dr. Samer Farhat</span>
-            </h1>
+  <span className="text-primary flex items-center gap-3">
+    Dr. Samer Farhat
+
+    <span
+      className="text-primary text-2xl sm:text-3xl md:text-4xl"
+      style={{ fontFamily: "'Great Vibes', cursive" }}
+    >
+      For Dental Solution
+    </span>
+  </span>
+</h1>
+
+
+
 
             <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-lg">
               Experience premium dental care with advanced technology and
@@ -77,16 +89,20 @@ const Hero = () => {
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl transition-all duration-500 group-hover:bg-primary/20" />
 
-              <img
-                src="/photos/drlogo.jpg"
-                alt="Dr. Samer Farhat"
-                className="
-                  relative rounded-3xl shadow-xl transition-transform duration-500 group-hover:scale-105
-                  w-[150px]
-                  sm:w-[190px]
-                  md:w-full md:max-w-sm
-                "
-              />
+             <img
+  src="/photos/drlogo.jpg"
+  alt="Dr. Samer Farhat"
+  className="
+    relative 
+    w-[150px] sm:w-[190px] md:w-full md:max-w-sm
+    rounded-full              /* makes it perfectly round */
+    shadow-xl
+    transition-transform duration-500 
+    group-hover:scale-105
+    object-cover              /* fills shape */
+    aspect-square             /* forces a circle */
+  "
+/>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 24,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1763825238630,
@@ -104,6 +104,18 @@
                 {
                     "date": 1764415446634,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n               >\r\n                 <Instagram className=\"w-4 h-4\" />\r\n               </a>\r\n              <a\r\n-  href=\"https://wa.me/961\"\r\n+  href=\"https://wa.me/96176026004\"\r\n   target=\"_blank\"\r\n   rel=\"noopener noreferrer\"\r\n   className=\"w-9 h-9 rounded-full bg-[#25D366]/10 flex items-center justify-center \r\n              hover:bg-[#25D366] hover:text-white hover:scale-110 \r\n"
+                },
+                {
+                    "date": 1764428456596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n             </a>\r\n \r\n             <a href=\"mailto:info@drsamerfar hat.com\" className=\"flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors\">\r\n               <Mail className=\"w-4 h-4 text-primary\" />\r\n-              info@drsamerfar hat.com\r\n+              info@drsamerfarhat.com\r\n             </a>\r\n           </div>\r\n \r\n           {/* Map & Social */}\r\n"
+                },
+                {
+                    "date": 1764428469388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,14 +8,14 @@\n           {/* About */}\r\n            <div className=\"space-y-3 animate-slide-in-left\">\r\n             <div className=\"flex items-center gap-2 mb-3\">\r\n               <div className=\"w-10 h-10 rounded-full overflow-hidden flex items-center justify-center\">\r\n-  <img \r\n-    src=\"/photos/drlogo.jpg\"    // your logo path\r\n-    alt=\"Dr. Samer Farhat Logo\"\r\n-    className=\"w-full h-full object-cover\"\r\n-  />\r\n-</div>\r\n+                <img \r\n+                  src=\"/photos/drlogo.jpg\"    // your logo path\r\n+                  alt=\"Dr. Samer Farhat Logo\"\r\n+                  className=\"w-full h-full object-cover\"\r\n+                />\r\n+              </div>\r\n \r\n               <div>\r\n                 <h3 className=\"font-semibold text-base text-foreground\">Dr. Samer Farhat</h3>\r\n                 <p className=\"text-xs text-muted-foreground\">Dental Specialist</p>\r\n"
+                },
+                {
+                    "date": 1764428474762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n               <Phone className=\"w-4 h-4 text-primary\" />\r\n               +961 76 026 004\r\n             </a>\r\n \r\n-            <a href=\"mailto:info@drsamerfar hat.com\" className=\"flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors\">\r\n+            <a href=\"mailto:info@drsamerfarhat.com\" className=\"flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors\">\r\n               <Mail className=\"w-4 h-4 text-primary\" />\r\n               info@drsamerfarhat.com\r\n             </a>\r\n           </div>\r\n"
                 }
             ],
             "date": 1763825238630,
