@@ -50,22 +50,7 @@ const About = () => {
         <div className="grid md:grid-cols-5 gap-4 items-start">
           
           {/* Image */}
-          <div className="md:col-span-2 animate-slide-in-left flex justify-center">
-            <div className="relative max-w-[180px] w-full">
-              <div className="rounded-xl overflow-hidden shadow-md h-[240px] md:h-[300px]">
-                <img
-                  src="/photos/drlogo2.jpg"
-                  alt="Dr. Samer Farhat"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground px-2.5 py-1.5 rounded-lg shadow-md text-center">
-                <div className="text-lg font-bold">9+</div>
-                <div className="text-[9px]">Years Experience</div>
-              </div>
-            </div>
-          </div>
+         
 
           {/* Content */}
           <div className="md:col-span-3 animate-slide-in-right">

@@ -22,9 +22,26 @@ const Gallery = () => {
   };
 
   return (
+    
     <section id="gallery" className="py-12 md:py-20 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
+         <div className="md:col-span-2 animate-slide-in-left flex justify-center">
+            <div className="relative max-w-[180px] w-full">
+              <div className="rounded-xl overflow-hidden shadow-md h-[240px] md:h-[300px]">
+                <img
+                  src="/photos/drlogo2.jpg"
+                  alt="Dr. Samer Farhat"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground px-2.5 py-1.5 rounded-lg shadow-md text-center">
+                <div className="text-lg font-bold">9+</div>
+                <div className="text-[9px]">Years Experience</div>
+              </div> */}
+            </div>
+          </div>
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12 animate-fade-in-up">
           <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">
             Before & After

@@ -6,6 +6,7 @@ import Gallery from "@/components/Gallery";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 // import Credentials from "@/components/Credentials";
 import Appointment from "@/components/Appointment";
+import Locations from "@/components/Locations";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
@@ -21,7 +22,9 @@ const Index = () => {
         <BeforeAfterSlider />
         {/* <Credentials /> */}
         <Appointment />
-        <Testimonials />
+         <Testimonials />
+        <Locations />
+       
       </main>
       <Footer />
     </div>

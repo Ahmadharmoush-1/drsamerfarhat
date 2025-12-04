@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Menu, X, Phone, Instagram, MapPin, MessageCircle } from "lucide-react";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -44,19 +42,15 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Social Icons (closer + brand colors) */}
+            {/* Social Icons */}
             <div className="flex items-center gap-1.5 ml-1">
-
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/drsamerfarhat/"
                 target="_blank"
                 className="p-1.5 rounded-full transition-all hover:scale-110"
               >
-                <Instagram
-                  className="w-5 h-5"
-                  style={{ color: "#E1306C" }}
-                />
+                <Instagram className="w-5 h-5" style={{ color: "#E1306C" }} />
               </a>
 
               {/* WhatsApp */}
@@ -65,49 +59,22 @@ const Navbar = () => {
                 target="_blank"
                 className="p-1.5 rounded-full transition-all hover:scale-110"
               >
-                <MessageCircle
-                  className="w-5 h-5"
-                  style={{ color: "#25D366" }}
-                />
+                <MessageCircle className="w-5 h-5" style={{ color: "#25D366" }} />
               </a>
 
               {/* Location */}
               <a
-                href="https://www.google.com/maps/place/Mazen+Pharmacy+Chiyah/@33.8577128,35.5172383,236m/data=!3m1!1e3!4m14!1m7!3m6!1s0x151f1777408ae429:0x65dfd6219c0a569f!2sMazen+Pharmacy+Chiyah!8m2!3d33.8579666!4d35.5170795!16s%2Fg%2F1tfn_v38!3m5!1s0x151f1777408ae429:0x65dfd6219c0a569f!8m2!3d33.8579666!4d35.5170795!16s%2Fg%2F1tfn_v38?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/place/Mazen+Pharmacy+Chiyah/"
                 target="_blank"
                 className="p-1.5 rounded-full transition-all hover:scale-110"
               >
-                <MapPin
-                  className="w-5 h-5"
-                  style={{ color: "#DB4437" }}
-                />
+                <MapPin className="w-5 h-5" style={{ color: "#DB4437" }} />
               </a>
             </div>
           </div>
 
           {/* RIGHT SIDE */}
           <div className="flex items-center gap-3">
-
-            {/* Mobile iOS Toggle */}
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="relative md:hidden w-12 h-6 rounded-full transition-all duration-300
-                         flex items-center px-1
-                         shadow-inner bg-secondary/40"
-            >
-              <div
-                className={`absolute inset-0 rounded-full blur-md transition-all duration-300 ${
-                  theme === "dark"
-                    ? "bg-blue-500/30 scale-110"
-                    : "bg-yellow-400/20 scale-75"
-                }`}
-              />
-              <div
-                className={`h-5 w-5 rounded-full transition-all duration-300 transform
-                  ${theme === "dark" ? "translate-x-6 bg-blue-500" : "translate-x-0 bg-yellow-400"}
-                  shadow-md`}
-              />
-            </button>
 
             {/* Mobile Menu Button */}
             <button
@@ -140,26 +107,6 @@ const Navbar = () => {
                 Testimonials
               </button>
 
-              {/* Desktop Dark Mode Toggle */}
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="relative w-12 h-6 rounded-full transition-all duration-300
-                           flex items-center px-1 shadow-inner bg-secondary/40"
-              >
-                <div
-                  className={`absolute inset-0 rounded-full blur-md transition-all duration-300 ${
-                    theme === "dark"
-                      ? "bg-blue-500/30 scale-110"
-                      : "bg-yellow-400/20 scale-75"
-                  }`}
-                />
-                <div
-                  className={`h-5 w-5 rounded-full transition-all duration-300 transform
-                    ${theme === "dark" ? "translate-x-6 bg-blue-500" : "translate-x-0 bg-yellow-400"}
-                    shadow-md`}
-                />
-              </button>
-
               <Button onClick={() => scrollToSection("appointment")} size="sm" className="ml-2">
                 <Phone className="w-3 h-3 mr-1" /> Book Now
               </Button>
@@ -177,7 +124,11 @@ const Navbar = () => {
               <button onClick={() => scrollToSection("gallery")} className="py-2 text-left text-sm font-medium hover:text-primary">Gallery</button>
               <button onClick={() => scrollToSection("testimonials")} className="py-2 text-left text-sm font-medium hover:text-primary">Testimonials</button>
 
-              <Button onClick={() => scrollToSection("appointment")} size="sm" className="mt-2 w-full">
+              <Button
+                onClick={() => scrollToSection("appointment")}
+                size="sm"
+                className="mt-2 w-full"
+              >
                 <Phone className="w-3 h-3 mr-1" /> Book Appointment
               </Button>
             </div>
