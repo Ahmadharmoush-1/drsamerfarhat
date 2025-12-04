@@ -99,28 +99,42 @@ const Hero = () => {
           </div>
 
           {/* IMAGE */}
-          <div className="flex justify-center items-center animate-slide-in-right pt-4 md:pt-0">
-            <div className="relative group">
+          {/* IMAGE */}
+<div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
+  <div className="relative group">
 
-              {/* Soft Glow Behind Image */}
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl transition-all duration-500 group-hover:bg-primary/20" />
+    {/* Soft Glow Behind Image */}
+    <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl transition-all duration-500 group-hover:bg-primary/20" />
 
-              <img
-                src="/photos/drlogo.jpg"
-                alt="Dr. Samer Farhat"
-                className="
-                  relative
-                  w-[150px] sm:w-[190px] md:w-[250px]
-                  rounded-full
-                  shadow-xl
-                  transition-transform duration-500
-                  group-hover:scale-105
-                  object-cover
-                  aspect-square
-                "
-              />
-            </div>
-          </div>
+    <img
+      src="/photos/drlogo.jpg"
+      alt="Dr. Samer Farhat"
+      className="
+        relative
+        w-[130px] sm:w-[170px] md:w-[230px]
+        rounded-full
+        shadow-xl
+        transition-transform duration-500
+        group-hover:scale-105
+        object-cover
+        aspect-square
+      "
+    />
+  </div>
+
+  {/* SIGNATURE UNDER IMAGE */}
+  <div
+    className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
+    style={{ fontFamily: "'Great Vibes', cursive" }}
+  >
+    Dr. Samer Farhat
+  </div>
+
+  <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
+    Dental Specialist
+  </div>
+</div>
+
 
         </div>
       </div>
