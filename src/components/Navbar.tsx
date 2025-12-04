@@ -2,8 +2,21 @@ import { useState } from "react";
 import { Menu, X, Phone, Instagram, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// ⭐ TWO CLINIC LOCATIONS
+const clinicLocations = [
+  {
+    name: "Chiyah – Beirut Clinic",
+    url: "https://www.google.com/maps/dir/?api=1&destination=33.8582379,35.5145683",
+  },
+  {
+    name: "Verdun – Beirut Clinic",
+    url: "https://www.google.com/maps/dir/?api=1&destination=33.893791,35.489360",
+  },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLocations, setShowLocations] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -16,9 +29,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
         {/* TOP BAR */}
-        <div className="flex justify-between items-center h-14 md:h-16">
+        <div className="flex justify-between items-center h-14 md:h-16 relative">
 
           {/* LEFT SIDE: Logo + Social Icons */}
           <div className="flex items-center gap-4">
@@ -44,6 +56,7 @@ const Navbar = () => {
 
             {/* Social Icons */}
             <div className="flex items-center gap-1.5 ml-1">
+
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/drsamerfarhat/"
@@ -62,14 +75,36 @@ const Navbar = () => {
                 <MessageCircle className="w-5 h-5" style={{ color: "#25D366" }} />
               </a>
 
-              {/* Location */}
-              <a
-                href="https://www.google.com/maps/place/Mazen+Pharmacy+Chiyah/"
-                target="_blank"
-                className="p-1.5 rounded-full transition-all hover:scale-110"
+              {/* LOCATION DROPDOWN TRIGGER */}
+              <button
+                onClick={() => setShowLocations(!showLocations)}
+                className="p-1.5 rounded-full transition-all hover:scale-110 relative"
               >
                 <MapPin className="w-5 h-5" style={{ color: "#DB4437" }} />
-              </a>
+              </button>
+
+              {/* ⭐ LOCATION DROPDOWN */}
+              {showLocations && (
+                <div className="absolute top-14 left-20 bg-card border border-border rounded-xl shadow-lg p-3 w-56 z-50 animate-fadeIn">
+                  <p className="text-xs font-semibold text-primary mb-2">
+                    Choose Location
+                  </p>
+
+                  {clinicLocations.map((loc, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        window.open(loc.url, "_blank");
+                        setShowLocations(false);
+                      }}
+                      className="block text-left w-full text-sm py-1.5 px-2 rounded-lg hover:bg-primary/10 transition-all"
+                    >
+                      {loc.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+
             </div>
           </div>
 
@@ -86,26 +121,11 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
-
-              <button onClick={() => scrollToSection("home")} className="text-sm font-medium hover:text-primary transition-colors">
-                Home
-              </button>
-
-              <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors">
-                About
-              </button>
-
-              <button onClick={() => scrollToSection("services")} className="text-sm font-medium hover:text-primary transition-colors">
-                Services
-              </button>
-
-              <button onClick={() => scrollToSection("gallery")} className="text-sm font-medium hover:text-primary transition-colors">
-                Gallery
-              </button>
-
-              <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium hover:text-primary transition-colors">
-                Testimonials
-              </button>
+              <button onClick={() => scrollToSection("home")} className="text-sm font-medium hover:text-primary transition-colors">Home</button>
+              <button onClick={() => scrollToSection("about")} className="text-sm font-medium hover:text-primary transition-colors">About</button>
+              <button onClick={() => scrollToSection("services")} className="text-sm font-medium hover:text-primary transition-colors">Services</button>
+              <button onClick={() => scrollToSection("gallery")} className="text-sm font-medium hover:text-primary transition-colors">Gallery</button>
+              <button onClick={() => scrollToSection("testimonials")} className="text-sm font-medium hover:text-primary transition-colors">Testimonials</button>
 
               <Button onClick={() => scrollToSection("appointment")} size="sm" className="ml-2">
                 <Phone className="w-3 h-3 mr-1" /> Book Now
