@@ -197,24 +197,26 @@ Location: ${formData.location}`;
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="location" className="text-sm font-medium flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  Location
-                </Label>
-                <Select
-                  value={formData.location}
-                  onValueChange={(value) => handleSelectChange("location", value)}
-                >
-                  <SelectTrigger className="h-10">
-                    <SelectValue placeholder="Select clinic location" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Beirut Clinic">Beirut Clinic</SelectItem>
-                    <SelectItem value="Tripoli Clinic">Tripoli Clinic</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            <div className="space-y-2">
+  <Label htmlFor="location" className="text-sm font-medium flex items-center gap-2">
+    <MapPin className="w-4 h-4 text-primary" />
+    Location
+  </Label>
+
+  <Select
+    value={formData.location}
+    onValueChange={(value) => handleSelectChange("location", value)}
+  >
+    <SelectTrigger className="h-10">
+      <SelectValue placeholder="Beirut Clinic" />
+    </SelectTrigger>
+
+    <SelectContent>
+      <SelectItem value="Beirut Clinic">Chiyah-Beirut Clinic</SelectItem>
+    </SelectContent>
+  </Select>
+</div>
+
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">

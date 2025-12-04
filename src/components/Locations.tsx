@@ -1,9 +1,9 @@
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 const locations = [
   {
     name: "Chiyah-Beirut Clinic",
-    address: "Chiyah – Mar Mkhayel Church – Near Mazen Pharmacy",
+    address: "NEAR MAZEN PHARMACY, Mar Mkhayel Church, Chiyah, Beirut",
     phone: "+961 76 026 004",
     hours: [
       { days: "Monday – Friday", time: "9:00 AM – 7:00 PM" },
@@ -12,6 +12,8 @@ const locations = [
     ],
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.5682745829746!2d35.51456831521083!3d33.85823798065334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDUxJzI5LjciTiAzNcKwMzAnNTkuMCJF!5e0!3m2!1sen!2slb!4v1234567890123",
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=33.8582379,35.5145683",
   },
   {
     name: "Verdun-Beirut Clinic",
@@ -24,6 +26,8 @@ const locations = [
     ],
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.5!2d35.84!3d34.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDI1JzQ4LjAiTiAzNcKwNTAnMjQuMCJF!5e0!3m2!1sen!2slb!4v1",
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=33.893791,35.489360",
   },
 ];
 
@@ -31,6 +35,7 @@ const Locations = () => {
   return (
     <section id="locations" className="py-12 md:py-20 bg-secondary/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12 animate-fade-in-up">
           <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">
@@ -68,7 +73,7 @@ const Locations = () => {
               </div>
 
               {/* Location Details */}
-              <div className="p-4 md:p-6 space-y-4">
+              <div className="p-4 md:p-6 space-y-3">
                 <h3 className="text-lg md:text-xl font-bold text-foreground flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-primary" />
                   {location.name}
@@ -76,44 +81,22 @@ const Locations = () => {
 
                 <p className="text-sm text-muted-foreground">{location.address}</p>
 
-                {/* <a
-                  href={`tel:${location.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"
+                {/* ⭐ GET DIRECTIONS BUTTON */}
+                <a
+                  href={location.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block w-full text-center py-2 px-4 
+                             bg-primary text-white rounded-lg text-sm font-medium
+                             hover:bg-primary/90 transition-all"
                 >
-                  <Phone className="w-4 h-4" />
-                  {location.phone}
-                </a> */}
-
-                {/* Working Hours */}
-                {/* <div className="pt-3 border-t border-border">
-                  <h4 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-3">
-                    <Clock className="w-4 h-4 text-primary" />
-                    Working Hours
-                  </h4>
-                  <ul className="space-y-1.5">
-                    {location.hours.map((schedule) => (
-                      <li
-                        key={schedule.days}
-                        className="flex justify-between text-sm"
-                      >
-                        <span className="text-muted-foreground">{schedule.days}</span>
-                        <span
-                          className={
-                            schedule.time === "Closed"
-                              ? "text-destructive font-medium"
-                              : "text-foreground font-medium"
-                          }
-                        >
-                          {schedule.time}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
+                  Get Directions
+                </a>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
