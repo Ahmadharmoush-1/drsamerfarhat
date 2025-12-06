@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const BeforeAfterSlider = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -15,6 +16,12 @@ const BeforeAfterSlider = () => {
     {
       before: "/photos/beforeafterslide2.jpg",
       after: "/photos/beforeafterslide2-1.jpg",
+      title: "Dental Implants & Restoration",
+      treatment: "Implants & Cosmetic Work",
+    },
+    {
+      before: "/photos/beforeafterslide3.jpg",
+      after: "/photos/beforeafterslide3-1.jpg",
       title: "Dental Implants & Restoration",
       treatment: "Implants & Cosmetic Work",
     },
@@ -55,6 +62,7 @@ const BeforeAfterSlider = () => {
   return (
     <section id="before-after" className="py-8 md:py-12 bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-6 md:mb-8 animate-fade-in-up">
           <h3 className="text-xs font-semibold text-primary uppercase mb-1">
@@ -126,18 +134,65 @@ const BeforeAfterSlider = () => {
               {comparison.treatment}
             </p>
 
-            {/* Dots */}
-            <div className="flex justify-center gap-1.5">
-              {comparisons.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentComparison(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentComparison ? "bg-primary w-5" : "bg-border"
-                  }`}
-                />
-              ))}
+            {/* Pagination Controls */}
+            <div className="flex justify-center items-center gap-4 mt-2">
+
+              {/* Left Arrow */}
+              <button
+                onClick={() =>
+                  setCurrentComparison(
+                    (prev) => (prev - 1 + comparisons.length) % comparisons.length
+                  )
+                }
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition"
+              >
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+
+              {/* Dots */}
+              <div className="flex items-center gap-2">
+                {comparisons.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentComparison(index)}
+                    className={`
+                      transition-all duration-300
+                      ${index === currentComparison
+                        ? "w-6 h-2 bg-primary rounded-full"
+                        : "w-2 h-2 bg-muted-foreground/40 rounded-full"}
+                    `}
+                  />
+                ))}
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() =>
+                  setCurrentComparison(
+                    (prev) => (prev + 1) % comparisons.length
+                  )
+                }
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+
             </div>
+
+            {/* Swipe Indicator */}
+            <div className="flex justify-center items-center gap-2 mt-3 text-muted-foreground text-xs md:hidden">
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+              <span>Swipe right to view more</span>
+            </div>
+
           </div>
         </div>
       </div>

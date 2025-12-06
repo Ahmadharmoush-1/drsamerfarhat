@@ -3,7 +3,7 @@ import { MapPin } from "lucide-react";
 const locations = [
   {
     name: "Chiyah-Beirut Clinic",
-    address: "NEAR MAZEN PHARMACY, Mar Mkhayel Church, Chiyah, Beirut",
+    address: "",
     phone: "+961 76 026 004",
     hours: [
       { days: "Monday – Friday", time: "9:00 AM – 7:00 PM" },
@@ -17,7 +17,7 @@ const locations = [
   },
   {
     name: "Verdun-Beirut Clinic",
-    address: "Verdun",
+    address: "",
     phone: "+961 76 026 004",
     hours: [
       { days: "Monday – Friday", time: "9:00 AM – 7:00 PM" },
