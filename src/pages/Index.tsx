@@ -9,6 +9,7 @@ import Appointment from "@/components/Appointment";
 import Locations from "@/components/Locations";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import FeedbackReviews from "@/components/FeedbackReviews";
 
 const Index = () => {
   return (
@@ -21,7 +22,8 @@ const Index = () => {
         <Gallery />
         <BeforeAfterSlider />
         {/* <Credentials /> */}
-        <Appointment />
+        <Appointment /> 
+        <FeedbackReviews />
          <Testimonials />
         <Locations />
        
