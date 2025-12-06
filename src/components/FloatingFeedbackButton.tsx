@@ -72,18 +72,18 @@ const FeedbackReviews = () => {
 
   const validateForm = (): boolean => {
     const newErrors: { name?: string; rating?: string; message?: string } = {};
-    
+
     if (!name.trim()) newErrors.name = "Name is required";
     if (rating === 0) newErrors.rating = "Please select a rating";
     if (!message.trim()) newErrors.message = "Message is required";
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     const newReview: Review = {
@@ -100,13 +100,13 @@ const FeedbackReviews = () => {
 
     addReview(newReview);
     setReviews(loadReviews());
-    
+
     setName("");
     setRating(0);
     setMessage("");
     setErrors({});
     setSuccess(true);
-    
+
     setTimeout(() => setSuccess(false), 3000);
   };
 
@@ -118,7 +118,9 @@ const FeedbackReviews = () => {
             key={star}
             type="button"
             disabled={!interactive}
-            className={`transition-all duration-200 ${interactive ? "cursor-pointer hover:scale-110" : "cursor-default"}`}
+            className={`transition-all duration-200 ${
+              interactive ? "cursor-pointer hover:scale-110" : "cursor-default"
+            }`}
             onMouseEnter={() => interactive && setHoverRating(star)}
             onMouseLeave={() => interactive && setHoverRating(0)}
             onClick={() => interactive && setRating(star)}
@@ -142,7 +144,7 @@ const FeedbackReviews = () => {
   className="py-12 md:py-20 bg-gradient-to-b from-background to-card/20"
 >
   <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-    
+
     {/* Section Header */}
     <div className="text-center mb-8 md:mb-12">
       <span className="inline-block px-3 py-1 mb-3 text-[10px] sm:text-xs font-medium uppercase bg-primary/10 text-primary rounded-full">
@@ -180,7 +182,7 @@ const FeedbackReviews = () => {
       </h3>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        
+
         {/* Name */}
         <div>
           <label className="block text-xs font-medium mb-1">Your Name</label>
@@ -188,7 +190,7 @@ const FeedbackReviews = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
-            className="h-9 text-sm"
+            className="h-9 text-base sm:text-sm" 
           />
           {errors.name && <p className="text-destructive text-[11px] mt-1">{errors.name}</p>}
         </div>
@@ -216,7 +218,7 @@ const FeedbackReviews = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows={3}
-            className="text-sm resize-none"
+            className="text-base sm:text-sm resize-none"  
             placeholder="Share your experience..."
           />
           {errors.message && <p className="text-destructive text-[11px] mt-1">{errors.message}</p>}
@@ -234,7 +236,7 @@ const FeedbackReviews = () => {
       </form>
     </div>
 
-    {/* Reviews List (⭐ HORIZONTAL CAROUSEL) */}
+    {/* ⭐ REVIEWS CAROUSEL */}
     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
       <User className="w-4 h-4 text-primary" />
       Recent Reviews
@@ -266,8 +268,7 @@ const FeedbackReviews = () => {
               snap-start
               bg-card/70 backdrop-blur-md
               border border-border/40 rounded-xl
-              p-4 shadow-sm
-              flex-shrink-0
+              p-4 shadow-sm flex-shrink-0
             "
           >
             {/* Header */}

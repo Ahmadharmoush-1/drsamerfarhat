@@ -7,6 +7,11 @@ const Hero = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToFeedback = () => {
+    const element = document.getElementById("feedback");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="home"
@@ -19,6 +24,21 @@ const Hero = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
       </div>
+
+      {/* ⭐ Floating Feedback Button (TEXT ONLY) */}
+      <button
+        onClick={scrollToFeedback}
+        className="
+          fixed bottom-5 right-5 z-50
+          bg-primary text-primary-foreground
+          px-5 py-2 rounded-full
+          shadow-lg hover:shadow-xl
+          text-sm font-semibold tracking-wide
+          hover:scale-110 transition-all duration-300
+        "
+      >
+        Feedbacks
+      </button>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
@@ -98,57 +118,53 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* IMAGE */}
-          {/* IMAGE */}
-{/* IMAGE (kept as is, only upgraded frame added) */}
-<div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
-  <div className="relative group">
+          {/* IMAGE (premium framed) */}
+          <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
+            <div className="relative group">
 
-    {/* Glow Behind Image */}
-    <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
-                    rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
+              {/* Glow Behind Image */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
+                              rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
 
-    {/* Gradient Ring */}
-    <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
-      <div className="w-full h-full rounded-full bg-background" />
-    </div>
+              {/* Gradient Ring */}
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
+                <div className="w-full h-full rounded-full bg-background" />
+              </div>
 
-    {/* Your Original Image */}
-    <img
-      src="/photos/drlogo.jpg"
-      alt="Dr. Samer Farhat"
-      className="
-        relative
-        w-[130px] sm:w-[170px] md:w-[230px]
-        rounded-full
-        shadow-xl
-        transition-transform duration-500
-        group-hover:scale-105
-        object-cover
-        aspect-square
-      "
-    />
+              {/* Your Original Image */}
+              <img
+                src="/photos/drlogo.jpg"
+                alt="Dr. Samer Farhat"
+                className="
+                  relative
+                  w-[130px] sm:w-[170px] md:w-[230px]
+                  rounded-full
+                  shadow-xl
+                  transition-transform duration-500
+                  group-hover:scale-105
+                  object-cover
+                  aspect-square
+                "
+              />
 
-    {/* Shine Hover Effect */}
-    <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
-                    from-transparent via-white/10 to-transparent 
-                    opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-  </div>
+              {/* Shine Hover Effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
+                              from-transparent via-white/10 to-transparent 
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
 
-  {/* Signature Under Image (unchanged) */}
-  <div
-    className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
-    style={{ fontFamily: "'Great Vibes', cursive" }}
-  >
-    Dr. Samer Farhat
-  </div>
+            {/* Signature */}
+            <div
+              className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
+              style={{ fontFamily: "'Great Vibes', cursive" }}
+            >
+              Dr. Samer Farhat
+            </div>
 
-  <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
-    Dental Specialist
-  </div>
-</div>
-
-
+            <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
+              Dental Specialist
+            </div>
+          </div>
 
         </div>
       </div>
