@@ -100,12 +100,20 @@ const Hero = () => {
 
           {/* IMAGE */}
           {/* IMAGE */}
+{/* IMAGE (kept as is, only upgraded frame added) */}
 <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
   <div className="relative group">
 
-    {/* Soft Glow Behind Image */}
-    <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl transition-all duration-500 group-hover:bg-primary/20" />
+    {/* Glow Behind Image */}
+    <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
+                    rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
 
+    {/* Gradient Ring */}
+    <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
+      <div className="w-full h-full rounded-full bg-background" />
+    </div>
+
+    {/* Your Original Image */}
     <img
       src="/photos/drlogo.jpg"
       alt="Dr. Samer Farhat"
@@ -120,9 +128,14 @@ const Hero = () => {
         aspect-square
       "
     />
+
+    {/* Shine Hover Effect */}
+    <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
+                    from-transparent via-white/10 to-transparent 
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
   </div>
 
-  {/* SIGNATURE UNDER IMAGE */}
+  {/* Signature Under Image (unchanged) */}
   <div
     className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
     style={{ fontFamily: "'Great Vibes', cursive" }}
@@ -134,6 +147,7 @@ const Hero = () => {
     Dental Specialist
   </div>
 </div>
+
 
 
         </div>
