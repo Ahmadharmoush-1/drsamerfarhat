@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[78vh] flex items-center pt-8 pb-10 sm:pt-10 md:pt-12"
+      className="relative min-h-[78vh] flex items-center pt-8 pb-10 sm:pt-10 md:pt-12 overflow-hidden"
     >
       {/* Background */}
       <div
@@ -25,7 +25,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
       </div>
 
-      {/* ⭐ Floating Feedback Button (TEXT ONLY) */}
+      {/* ⭐ Floating Feedback Button */}
       <button
         onClick={scrollToFeedback}
         className="
@@ -40,6 +40,63 @@ const Hero = () => {
         Feedbacks
       </button>
 
+      {/* ⭐ Animated Floating Dental Icons */}
+      <div className="absolute inset-0 pointer-events-none select-none opacity-20">
+        {/* Tooth */}
+        <img
+          src="/photos/tooth.png"
+          className="absolute top-10 left-10 w-10 animate-float-slow"
+        />
+
+        {/* Implant */}
+        <img
+          src="/photos/implant.png"
+          className="absolute bottom-20 left-[40%] w-12 animate-float-medium"
+        />
+
+        {/* Smile curve */}
+        <img
+          src="/photos/dental-drill.png"
+          className="absolute top-[45%] right-16 w-14 animate-float-fast"
+        />
+
+        {/* Toothbrush */}
+        <img
+          src="/photos/brush-teeth.png"
+          className="absolute bottom-10 right-10 w-10 animate-float-slower"
+        />
+      </div>
+
+      {/* KEYFRAMES */}
+      <style>{`
+        @keyframes floatSlow {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-12px); }
+          100% { transform: translateY(0px); }
+        }
+        @keyframes floatMedium {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-16px) rotate(6deg); }
+          100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes floatFast {
+          0% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-8px) scale(1.05); }
+          100% { transform: translateY(0px) scale(1); }
+        }
+        @keyframes floatSlower {
+          0% { transform: translateY(0px) rotate(-4deg); }
+          50% { transform: translateY(10px) rotate(4deg); }
+          100% { transform: translateY(0px) rotate(-4deg); }
+        }
+
+        .animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
+        .animate-float-medium { animation: floatMedium 7s ease-in-out infinite; }
+        .animate-float-fast { animation: floatFast 5s ease-in-out infinite; }
+        .animate-float-slower { animation: floatSlower 8s ease-in-out infinite; }
+      `}</style>
+
+      {/* CONTENT */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
 
@@ -73,7 +130,7 @@ const Hero = () => {
               personalized treatment. Your smile is our priority.
             </p>
 
-            {/* ⭐ TRUST BADGES */}
+            {/* TRUST BADGES */}
             <div className="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
               <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
                 ⭐ 9+ Years Experience
@@ -118,65 +175,61 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* IMAGE (premium framed) */}
-         <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
-  <div className="relative group">
+          {/* IMAGE */}
+          <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
+            <div className="relative group">
 
-    {/* Glow Behind Image */}
-    <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
-                    rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
+              {/* Glow Behind Image */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
+                              rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
 
-    {/* Gradient Ring */}
-    <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
-      <div className="w-full h-full rounded-full bg-background" />
-    </div>
+              {/* Gradient Ring */}
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
+                <div className="w-full h-full rounded-full bg-background" />
+              </div>
 
-    {/* Your Original Image */}
-    <img
-      src="/photos/drlogo.jpg"
-      alt="Dr. Samer Farhat"
-      className="
-        relative
-        w-[130px] sm:w-[170px] md:w-[230px]
-        rounded-full
-        shadow-xl
-        transition-transform duration-500
-        group-hover:scale-105
-        object-cover
-        aspect-square
-      "
-    />
+              {/* Main Image */}
+              <img
+                src="/photos/drlogo.jpg"
+                alt="Dr. Samer Farhat"
+                className="
+                  relative
+                  w-[130px] sm:w-[170px] md:w-[230px]
+                  rounded-full shadow-xl
+                  transition-transform duration-500
+                  group-hover:scale-105
+                  object-cover aspect-square
+                "
+              />
 
-    {/* Tooth Icon Badge */}
-    <div className="absolute bottom-0 right-0 translate-x-2 translate-y-2 
-                    bg-background rounded-full p-2 shadow-lg 
-                    border border-primary/50">
-      <img 
-        src="/photos/tooth.png" 
-        alt="tooth icon"
-        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
-      />
-    </div>
+              {/* Tooth Icon Badge */}
+              <div className="absolute bottom-0 right-0 translate-x-2 translate-y-2 
+                              bg-background rounded-full p-2 shadow-lg 
+                              border border-primary/50">
+                <img 
+                  src="/photos/tooth.png"
+                  className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
+                />
+              </div>
 
-    {/* Shine Hover Effect */}
-    <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
-                    from-transparent via-white/10 to-transparent 
-                    opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-  </div>
+              {/* Shine Hover */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
+                              from-transparent via-white/10 to-transparent 
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
 
-  {/* Signature */}
-  <div
-    className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
-    style={{ fontFamily: "'Great Vibes', cursive" }}
-  >
-    Dr. Samer Farhat
-  </div>
+            {/* Signature */}
+            <div
+              className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
+              style={{ fontFamily: "'Great Vibes', cursive" }}
+            >
+              Dr. Samer Farhat
+            </div>
 
-  <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
-    Dental Specialist
-  </div>
-</div>
-
+            <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
+              Dental Specialist
+            </div>
+          </div>
 
         </div>
       </div>
