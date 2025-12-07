@@ -119,52 +119,64 @@ const Hero = () => {
           </div>
 
           {/* IMAGE (premium framed) */}
-          <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
-            <div className="relative group">
+         <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
+  <div className="relative group">
 
-              {/* Glow Behind Image */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
-                              rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
+    {/* Glow Behind Image */}
+    <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
+                    rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
 
-              {/* Gradient Ring */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
-                <div className="w-full h-full rounded-full bg-background" />
-              </div>
+    {/* Gradient Ring */}
+    <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
+      <div className="w-full h-full rounded-full bg-background" />
+    </div>
 
-              {/* Your Original Image */}
-              <img
-                src="/photos/drlogo.jpg"
-                alt="Dr. Samer Farhat"
-                className="
-                  relative
-                  w-[130px] sm:w-[170px] md:w-[230px]
-                  rounded-full
-                  shadow-xl
-                  transition-transform duration-500
-                  group-hover:scale-105
-                  object-cover
-                  aspect-square
-                "
-              />
+    {/* Your Original Image */}
+    <img
+      src="/photos/drlogo.jpg"
+      alt="Dr. Samer Farhat"
+      className="
+        relative
+        w-[130px] sm:w-[170px] md:w-[230px]
+        rounded-full
+        shadow-xl
+        transition-transform duration-500
+        group-hover:scale-105
+        object-cover
+        aspect-square
+      "
+    />
 
-              {/* Shine Hover Effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
-                              from-transparent via-white/10 to-transparent 
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            </div>
+    {/* Tooth Icon Badge */}
+    <div className="absolute bottom-0 right-0 translate-x-2 translate-y-2 
+                    bg-background rounded-full p-2 shadow-lg 
+                    border border-primary/50">
+      <img 
+        src="/photos/tooth.png" 
+        alt="tooth icon"
+        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
+      />
+    </div>
 
-            {/* Signature */}
-            <div
-              className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
-              style={{ fontFamily: "'Great Vibes', cursive" }}
-            >
-              Dr. Samer Farhat
-            </div>
+    {/* Shine Hover Effect */}
+    <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
+                    from-transparent via-white/10 to-transparent 
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+  </div>
 
-            <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
-              Dental Specialist
-            </div>
-          </div>
+  {/* Signature */}
+  <div
+    className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
+    style={{ fontFamily: "'Great Vibes', cursive" }}
+  >
+    Dr. Samer Farhat
+  </div>
+
+  <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
+    Dental Specialist
+  </div>
+</div>
+
 
         </div>
       </div>
