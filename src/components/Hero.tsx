@@ -41,31 +41,53 @@ const Hero = () => {
       </button>
 
       {/* ⭐ Animated Floating Dental Icons */}
-      <div className="absolute inset-0 pointer-events-none select-none opacity-20">
-        {/* Tooth */}
-        <img
-          src="/photos/tooth.png"
-          className="absolute top-10 left-10 w-10 animate-float-slow"
-        />
+<div className="absolute inset-0 pointer-events-none select-none opacity-25">
 
-        {/* Implant */}
-        <img
-          src="/photos/implant.png"
-          className="absolute bottom-20 left-[40%] w-12 animate-float-medium"
-        />
+  {/* Tooth – move higher on mobile */}
+  <img
+    src="/photos/tooth.png"
+    className="
+      absolute 
+      top-6 left-4 w-8
+      sm:top-10 sm:left-10 sm:w-10
+      animate-float-slow
+    "
+  />
 
-        {/* Smile curve */}
-        <img
-          src="/photos/dental-drill.png"
-          className="absolute top-[45%] right-16 w-14 animate-float-fast"
-        />
+  {/* Implant – move lower & reduce size */}
+  <img
+    src="/photos/implant.png"
+    className="
+      absolute 
+      bottom-[28%] left-[20%] w-10
+      sm:bottom-20 sm:left-[40%] sm:w-12
+      animate-float-medium
+    "
+  />
 
-        {/* Toothbrush */}
-        <img
-          src="/photos/brush-teeth.png"
-          className="absolute bottom-10 right-10 w-10 animate-float-slower"
-        />
-      </div>
+  {/* Drill – move to top right so it never hides */}
+  <img
+    src="/photos/dental-drill.png"
+    className="
+      absolute 
+      top-[20%] right-4 w-10
+      sm:top-[45%] sm:right-16 sm:w-14
+      animate-float-fast
+    "
+  />
+
+  {/* Toothbrush – move above buttons on mobile */}
+  <img
+    src="/photos/brush-teeth.png"
+    className="
+      absolute 
+      bottom-[18%] right-4 w-9
+      sm:bottom-10 sm:right-10 sm:w-10
+      animate-float-slower
+    "
+  />
+</div>
+
 
       {/* KEYFRAMES */}
       <style>{`
