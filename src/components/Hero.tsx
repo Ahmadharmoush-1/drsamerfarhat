@@ -25,7 +25,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
       </div>
 
-      {/* ⭐ Floating Feedback Button */}
+      {/* Floating Feedback Button */}
       <button
         onClick={scrollToFeedback}
         className="
@@ -40,54 +40,25 @@ const Hero = () => {
         Feedbacks
       </button>
 
-      {/* ⭐ Animated Floating Dental Icons */}
-<div className="absolute inset-0 pointer-events-none select-none opacity-25">
-
-  {/* Tooth – move higher on mobile */}
-  <img
-    src="/photos/tooth.png"
-    className="
-      absolute 
-      top-6 left-4 w-8
-      sm:top-10 sm:left-10 sm:w-10
-      animate-float-slow
-    "
-  />
-
-  {/* Implant – move lower & reduce size */}
-  <img
-    src="/photos/implant.png"
-    className="
-      absolute 
-      bottom-[28%] left-[20%] w-10
-      sm:bottom-20 sm:left-[40%] sm:w-12
-      animate-float-medium
-    "
-  />
-
-  {/* Drill – move to top right so it never hides */}
-  <img
-    src="/photos/dental-drill.png"
-    className="
-      absolute 
-      top-[20%] right-4 w-10
-      sm:top-[45%] sm:right-16 sm:w-14
-      animate-float-fast
-    "
-  />
-
-  {/* Toothbrush – move above buttons on mobile */}
-  <img
-    src="/photos/brush-teeth.png"
-    className="
-      absolute 
-      bottom-[18%] right-4 w-9
-      sm:bottom-10 sm:right-10 sm:w-10
-      animate-float-slower
-    "
-  />
-</div>
-
+      {/* Floating Dental Icons */}
+      <div className="absolute inset-0 pointer-events-none select-none opacity-25">
+        <img
+          src="/photos/tooth.png"
+          className="absolute top-6 left-4 w-8 sm:top-10 sm:left-10 sm:w-10 animate-float-slow"
+        />
+        <img
+          src="/photos/implant.png"
+          className="absolute bottom-[28%] left-[20%] w-10 sm:bottom-20 sm:left-[40%] sm:w-12 animate-float-medium"
+        />
+        <img
+          src="/photos/dental-drill.png"
+          className="absolute top-[20%] right-4 w-10 sm:top-[45%] sm:right-16 sm:w-14 animate-float-fast"
+        />
+        <img
+          src="/photos/brush-teeth.png"
+          className="absolute bottom-[18%] right-4 w-9 sm:bottom-10 sm:right-10 sm:w-10 animate-float-slower"
+        />
+      </div>
 
       {/* KEYFRAMES */}
       <style>{`
@@ -116,23 +87,26 @@ const Hero = () => {
         .animate-float-medium { animation: floatMedium 7s ease-in-out infinite; }
         .animate-float-fast { animation: floatFast 5s ease-in-out infinite; }
         .animate-float-slower { animation: floatSlower 8s ease-in-out infinite; }
+
+        /* ⭐ Typing animation for signature */
+        @keyframes typeSignature {
+          0% { width: 0; }
+          100% { width: 100%; }
+        }
       `}</style>
 
       {/* CONTENT */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
 
-          {/* TEXT */}
+          {/* TEXT LEFT */}
           <div className="space-y-4 animate-slide-in-left text-center md:text-left">
-
-            {/* Tag */}
             <div className="inline-block px-3 py-1 bg-primary/10 rounded-full mx-auto md:mx-0">
               <span className="text-xs font-medium text-primary">
                 Professional Dental Care
               </span>
             </div>
 
-            {/* TITLE */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
               Welcome to <br />
               <span className="text-primary block sm:flex sm:items-center sm:justify-center md:justify-start">
@@ -146,13 +120,11 @@ const Hero = () => {
               </span>
             </h1>
 
-            {/* DESCRIPTION */}
             <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-md mx-auto md:mx-0">
               Experience premium dental care with advanced technology and
               personalized treatment. Your smile is our priority.
             </p>
 
-            {/* TRUST BADGES */}
             <div className="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
               <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
                 ⭐ 9+ Years Experience
@@ -188,7 +160,6 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* LOCATION */}
             <div className="flex items-start justify-center md:justify-start gap-2 pt-2 text-xs sm:text-sm text-muted-foreground">
               <MapPin className="w-4 h-4 mt-0.5 text-primary" />
               <span className="max-w-[260px] leading-snug">
@@ -197,20 +168,17 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* IMAGE */}
+          {/* IMAGE RIGHT */}
           <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
             <div className="relative group">
 
-              {/* Glow Behind Image */}
               <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 
                               rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
 
-              {/* Gradient Ring */}
               <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
                 <div className="w-full h-full rounded-full bg-background" />
               </div>
 
-              {/* Main Image */}
               <img
                 src="/photos/drlogo.jpg"
                 alt="Dr. Samer Farhat"
@@ -224,7 +192,6 @@ const Hero = () => {
                 "
               />
 
-              {/* Tooth Icon Badge */}
               <div className="absolute bottom-0 right-0 translate-x-2 translate-y-2 
                               bg-background rounded-full p-2 shadow-lg 
                               border border-primary/50">
@@ -234,23 +201,33 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Shine Hover */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr 
                               from-transparent via-white/10 to-transparent 
                               opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
 
-            {/* Signature */}
-            <div
-              className="text-primary text-2xl sm:text-3xl md:text-4xl mt-3"
-              style={{ fontFamily: "'Great Vibes', cursive" }}
-            >
-              Dr. Samer Farhat
-            </div>
+           {/* ⭐ SIGNATURE WITH TYPING ANIMATION */}
+<div className="flex flex-col items-center w-full mt-3">
 
-            <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide -mt-1">
-              Dental Specialist
-            </div>
+  <div
+    className="text-primary text-2xl sm:text-3xl md:text-4xl overflow-hidden whitespace-nowrap"
+    style={{
+      fontFamily: "'Great Vibes', cursive",
+      display: "block",
+      width: "0",
+      margin: "0 auto",        // ⭐ keeps it centered while typing
+      textAlign: "center",     // ⭐ stays centered AFTER typing
+      animation: "typeSignature 3s steps(40, end) forwards",
+    }}
+  >
+    Dr. Samer Farhat
+  </div>
+
+  <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide mt-1">
+    Dental Specialist
+  </div>
+</div>
+
           </div>
 
         </div>
