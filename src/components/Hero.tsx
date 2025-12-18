@@ -107,18 +107,24 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground">
-              Welcome to <br />
-              <span className="text-primary block sm:flex sm:items-center sm:justify-center md:justify-start">
-                Dr. Samer Farhat
-                <span
-                  className="text-primary text-xl sm:text-2xl md:text-3xl sm:ml-2 mt-1 sm:mt-0 block"
-                  style={{ fontFamily: "'Great Vibes', cursive" }}
-                >
-                  For Dental Solution
-                </span>
-              </span>
-            </h1>
+ <div className="flex flex-col items-center md:items-start">
+  <img
+    src="/photos/drlogohero.jpg"
+    alt="Dr. Samer Farhat"
+    className="block w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] object-contain"
+  />
+
+  <span
+    className="-mt-1 text-primary text-xl sm:text-2xl md:text-3xl leading-none"
+    style={{ fontFamily: "'Great Vibes', cursive" }}
+  >
+    For Dental Solution
+  </span>
+</div>
+
+
+
+
 
             <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-md mx-auto md:mx-0">
               Experience premium dental care with advanced technology and
