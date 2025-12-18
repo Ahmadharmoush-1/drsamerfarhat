@@ -50,6 +50,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+          gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+          foreground: "hsl(var(--gold-foreground))",
+        },
+        vip: {
+          DEFAULT: "hsl(var(--vip-bg))",
+          cream: "hsl(var(--vip-cream))",
+          strong: "hsl(40 35% 88%)", // NEW: readable section base
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

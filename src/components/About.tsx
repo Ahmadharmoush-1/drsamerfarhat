@@ -54,7 +54,7 @@ const About = () => {
 
           {/* Content */}
           <div className="md:col-span-3 animate-slide-in-right">
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <h3 className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
                 About Dr. Samer Farhat
               </h3>
@@ -65,7 +65,7 @@ const About = () => {
                 With 9+ years of expertise in advanced dentistry, Dr. Farhat
                 provides world-class care with modern techniques and high-precision treatments.
               </p>
-            </div>
+            </div> */}
 
             {/* Credentials */}
             <div className="grid sm:grid-cols-2 gap-2 md:gap-3">

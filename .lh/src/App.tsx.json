@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1763825337236,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1766082283349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import { TooltipProvider } from \"@/components/ui/tooltip\";\r\n import { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\r\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import Index from \"./pages/Index\";\r\n+import CosmeticDentistry from \"./pages/CosmeticDentistry\";\r\n import NotFound from \"./pages/NotFound\";\r\n \r\n const queryClient = new QueryClient();\r\n \r\n@@ -15,8 +16,9 @@\n       <Sonner />\r\n       <BrowserRouter>\r\n         <Routes>\r\n           <Route path=\"/\" element={<Index />} />\r\n+          <Route path=\"/cosmetic-dentistry\" element={<CosmeticDentistry />} />\r\n           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL \"*\" ROUTE */}\r\n           <Route path=\"*\" element={<NotFound />} />\r\n         </Routes>\r\n       </BrowserRouter>\r\n"
+                },
+                {
+                    "date": 1766082367842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { TooltipProvider } from \"@/components/ui/tooltip\";\r\n import { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\r\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import Index from \"./pages/Index\";\r\n-import CosmeticDentistry from \"./pages/CosmeticDentistry\";\r\n+import CosmeticDentistry from \"./components/CosmeticDentistry\";\r\n import NotFound from \"./pages/NotFound\";\r\n \r\n const queryClient = new QueryClient();\r\n \r\n"
                 }
             ],
             "date": 1763825337236,

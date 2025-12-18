@@ -135,9 +135,9 @@ const Hero = () => {
               <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
                 ⭐ 9+ Years Experience
               </div>
-              <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
+              {/* <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
                 ⭐ Endodontics Specialist
-              </div>
+              </div> */}
               <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
                 ⭐ Hollywood Smile Expert
               </div>
@@ -213,26 +213,33 @@ const Hero = () => {
             </div>
 
            {/* ⭐ SIGNATURE WITH TYPING ANIMATION */}
-<div className="flex flex-col items-center w-full mt-3">
+<div className="flex flex-col items-center w-full mt-2 px-4 text-center">
 
+  {/* TYPING TITLE (ONE LINE ONLY) */}
   <div
-    className="text-primary text-2xl sm:text-3xl md:text-4xl overflow-hidden whitespace-nowrap"
+    className="text-primary text-lg sm:text-xl md:text-2xl overflow-hidden whitespace-nowrap"
     style={{
-      fontFamily: "'Great Vibes', cursive",
-      display: "block",
+      fontFamily: "'Playfair Display', serif",
       width: "0",
-      margin: "0 auto",        // ⭐ keeps it centered while typing
-      textAlign: "center",     // ⭐ stays centered AFTER typing
-      animation: "typeSignature 3s steps(40, end) forwards",
+      margin: "0 auto",
+      animation: "typeSignature 2.5s steps(30, end) forwards",
     }}
   >
-    Dr. Samer Farhat
+    About Dr. Samer Farhat
   </div>
 
-  <div className="text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide mt-1">
+  {/* DESCRIPTION */}
+  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs sm:max-w-sm">
+    With 9+ years of expertise in advanced dentistry, Dr. Farhat provides
+    world-class care with modern techniques and high-precision treatments.
+  </p>
+
+  {/* ROLE */}
+  {/* <div className="mt-1 text-[11px] sm:text-xs text-primary/80 font-medium tracking-wide">
     Dental Specialist
-  </div>
+  </div> */}
 </div>
+
 
           </div>
 
