@@ -111,16 +111,17 @@ const Hero = () => {
   <img
     src="/photos/drlogohero.jpg"
     alt="Dr. Samer Farhat"
-    className="block w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] object-contain"
+    className="block w-[240px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[480px] object-contain"
   />
 
   <span
-    className="-mt-1 text-primary text-xl sm:text-2xl md:text-3xl leading-none"
+    className="-mt-6 text-primary text-xl sm:text-2xl md:text-3xl leading-none"
     style={{ fontFamily: "'Great Vibes', cursive" }}
   >
     For Dental Solution
   </span>
 </div>
+
 
 
 
@@ -169,7 +170,7 @@ const Hero = () => {
             <div className="flex items-start justify-center md:justify-start gap-2 pt-2 text-xs sm:text-sm text-muted-foreground">
               <MapPin className="w-4 h-4 mt-0.5 text-primary" />
               <span className="max-w-[260px] leading-snug">
-                Beirut – Mar Mkhayel Church – Near Mazen Pharmacy
+                Beirut – Chiyah – Mar Mkhayel Church – Near Mazen Pharmacy
               </span>
             </div>
           </div>

@@ -11,20 +11,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const clinicLocations = [
-  {
-    name: "Chiyah – Beirut Clinic",
-    url: "https://www.google.com/maps/dir/?api=1&destination=33.8582379,35.5145683",
-  },
-  // {
-  //   name: "Verdun – Beirut Clinic",
-  //   url: "https://www.google.com/maps/dir/?api=1&destination=33.893791,35.489360",
-  // },
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showLocations, setShowLocations] = useState(false);
   const [showCosmetic, setShowCosmetic] = useState(false);
 
   const navigate = useNavigate();
@@ -43,65 +31,42 @@ const Navbar = () => {
     setShowCosmetic(false);
   };
 
+  const mapUrl =
+    "https://www.google.com/maps/place/33%C2%B051'27.8%22N+35%C2%B031'02.6%22E/@33.8577232,35.5148239,17z/data=!3m1!4b1!4m4!3m3!8m2!3d33.8577232!4d35.5173988?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D";
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center h-14 md:h-16 relative">
+        <div className="flex justify-between items-center h-14 md:h-16">
 
           {/* LEFT */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
-              <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src="/photos/drlogo.jpg" className="w-full h-full object-cover" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-semibold text-sm">Dr. Samer Farhat</span>
-                <span className="text-[10px] text-muted-foreground">
-                  Dental Specialist
-                </span>
-              </div>
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <div className="w-9 h-9 rounded-full overflow-hidden">
+              <img
+                src="/photos/drlogo.jpg"
+                className="w-full h-full object-cover"
+              />
             </div>
-
-            {/* SOCIAL */}
-            <div className="flex items-center gap-1.5 ml-1">
-              <a href="https://www.instagram.com/drsamerfarhat/" target="_blank">
-                <Instagram className="w-5 h-5 text-pink-500" />
-              </a>
-              <a href="https://wa.me/96176026004" target="_blank">
-                <MessageCircle className="w-5 h-5 text-green-500" />
-              </a>
-
-              {/* LOCATION */}
-              <button onClick={() => setShowLocations(!showLocations)}>
-                <MapPin className="w-5 h-5 text-red-500" />
-              </button>
-
-              {showLocations && (
-                <div className="absolute top-14 left-20 bg-card border rounded-xl shadow-lg p-3 w-56 z-50">
-                  <p className="text-xs font-semibold text-primary mb-2">
-                    Choose Location
-                  </p>
-                  {clinicLocations.map((loc, i) => (
-                    <button
-                      key={i}
-                      onClick={() => window.open(loc.url, "_blank")}
-                      className="block w-full text-left py-1.5 px-2 rounded-lg hover:bg-primary/10"
-                    >
-                      {loc.name}
-                    </button>
-                  ))}
-                </div>
-              )}
+            <div className="flex flex-col leading-tight">
+              <span className="font-semibold text-sm">
+                Dr. Samer Farhat
+              </span>
+              <span className="text-[10px] text-muted-foreground">
+                Dental Specialist
+              </span>
             </div>
           </div>
 
           {/* RIGHT DESKTOP */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5">
 
             <button onClick={() => scrollToSection("home")}>Home</button>
             <button onClick={() => scrollToSection("about")}>About</button>
 
-            {/* ⭐ COSMETIC DENTISTRY DROPDOWN */}
+            {/* COSMETIC DROPDOWN */}
             <div className="relative">
               <button
                 onClick={() => setShowCosmetic(!showCosmetic)}
@@ -143,34 +108,82 @@ const Navbar = () => {
             <Button onClick={() => scrollToSection("appointment")} size="sm">
               <Phone className="w-3 h-3 mr-1" /> Book Now
             </Button>
+
+            {/* SOCIAL ICONS */}
+            <div className="flex items-center gap-2 ml-1">
+              <a
+                href="https://www.instagram.com/drsamerfarhat/"
+                target="_blank"
+              >
+                <Instagram className="w-5 h-5 text-pink-500" />
+              </a>
+              <a href="https://wa.me/96176026004" target="_blank">
+                <MessageCircle className="w-5 h-5 text-green-500" />
+              </a>
+              <a href={mapUrl} target="_blank">
+                <MapPin className="w-5 h-5 text-red-500" />
+              </a>
+            </div>
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-            {isOpen ? <X /> : <Menu />}
-          </button>
+          {/* MOBILE RIGHT */}
+          <div className="flex items-center gap-3 md:hidden">
+            <a href="https://www.instagram.com/drsamerfarhat/" target="_blank">
+              <Instagram className="w-5 h-5 text-pink-500" />
+            </a>
+            <a href="https://wa.me/96176026004" target="_blank">
+              <MessageCircle className="w-5 h-5 text-green-500" />
+            </a>
+            <a href={mapUrl} target="_blank">
+              <MapPin className="w-5 h-5 text-red-500" />
+            </a>
+
+            <button onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
 
         {/* MOBILE MENU */}
         {isOpen && (
           <div className="md:hidden py-3 border-t">
-            <button onClick={() => scrollToSection("home")} className="block py-2">Home</button>
-            <button onClick={() => scrollToSection("about")} className="block py-2">About</button>
+            <button onClick={() => scrollToSection("home")} className="block py-2">
+              Home
+            </button>
+            <button onClick={() => scrollToSection("about")} className="block py-2">
+              About
+            </button>
 
-            {/* MOBILE COSMETIC */}
             <div className="py-2">
-              <p className="text-yellow-600 font-semibold">Cosmetic Dentistry</p>
-              <button onClick={() => goToCosmetic()} className="block pl-4 py-1">Overview</button>
-              <button onClick={() => goToCosmetic("#emax-veneers")} className="block pl-4 py-1">
+              <p className="text-yellow-600 font-semibold">
+                Cosmetic Dentistry
+              </p>
+              <button onClick={() => goToCosmetic()} className="block pl-4 py-1">
+                Overview
+              </button>
+              <button
+                onClick={() => goToCosmetic("#emax-veneers")}
+                className="block pl-4 py-1"
+              >
                 E-max Veneers
               </button>
-              <button onClick={() => goToCosmetic("#vip-composite")} className="block pl-4 py-1">
+              <button
+                onClick={() => goToCosmetic("#vip-composite")}
+                className="block pl-4 py-1"
+              >
                 VIP Composite Veneers
               </button>
             </div>
 
-            <button onClick={() => scrollToSection("gallery")} className="block py-2">Gallery</button>
-            <button onClick={() => scrollToSection("testimonials")} className="block py-2">Testimonials</button>
+            <button onClick={() => scrollToSection("gallery")} className="block py-2">
+              Gallery
+            </button>
+            <button
+              onClick={() => scrollToSection("testimonials")}
+              className="block py-2"
+            >
+              Testimonials
+            </button>
           </div>
         )}
       </div>

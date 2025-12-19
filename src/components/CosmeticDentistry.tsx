@@ -62,7 +62,7 @@ const CosmeticDentistry = () => {
             </div>
 
             <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 md:mb-6">
-              Cosmetic <span className="text-gold">Dentistry</span>
+             <span className="text-gold"> Cosmetic Dentistry</span>
             </h1>
 
             <p className="text-base md:text-2xl text-slate-600 max-w-2xl mx-auto">

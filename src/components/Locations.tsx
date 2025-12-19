@@ -1,15 +1,21 @@
 import { MapPin } from "lucide-react";
 
 const locations = [
-  {
-    name: "Beirut – Mar Mkhayel Church",
-    address: "Near Mazen Pharmacy Clinic",
-    phone: "+961 76 026 004",
-    mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.5682745829746!2d35.51456831521083!3d33.85823798065334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDUxJzI5LjciTiAzNcKwMzAnNTkuMCJF!5e0!3m2!1sen!2slb!4v1234567890123",
-    directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=33.8582379,35.5145683",
-  },
+{
+  name: "Beirut – Mar Mkhayel Church",
+  address: "Near Mazen Pharmacy Clinic",
+  phone: "+961 76 026 004",
+
+  // ✅ WORKING EMBED (no pb)
+  mapUrl:
+    "https://www.google.com/maps?q=33.8577232,35.5173988&hl=en&z=16&output=embed",
+
+  // ✅ DIRECTIONS
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=33.8577232,35.5173988",
+}
+
+
 ];
 
 const Locations = () => {
