@@ -18,16 +18,16 @@ const Services = () => {
       icon: Smile,
       title: "Cosmetic Dentistry",
       description:
-        "Comprehensive aesthetic treatments including whitening, bonding, and smile makeovers.",
+        "Comprehensive aesthetic treatments including E-max Veneers , Premium Composite Veneerrs , Whitening, Bonding, and Smile makeovers.",
       vip: true,
       href: "/cosmetic-dentistry",
     },
-    {
-      icon: Activity,
-      title: "Endodontics",
-      description:
-        "Expert root canal treatments using advanced techniques for pain-free procedures and long-lasting results.",
-    },
+    // {
+    //   icon: Activity,
+    //   title: "Endodontics",
+    //   description:
+    //     "Expert root canal treatments using advanced techniques for pain-free procedures and long-lasting results.",
+    // },
     {
       icon: Sparkles,
       title: "Hollywood Smile",

@@ -141,22 +141,17 @@ Location: ${formData.location}`;
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <Label className="text-xs flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-primary" /> Location
-                </Label>
-                <Select
-                  value={formData.location}
-                  onValueChange={(v) => setFormData({ ...formData, location: v })}
-                >
-                  <SelectTrigger className="h-9 text-sm">
-                    <SelectValue placeholder="Beirut Clinic" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Beirut Clinic">Chiyah-Beirut Clinic</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            <div className="space-y-1">
+  <Label className="text-xs flex items-center gap-1">
+    <MapPin className="w-3 h-3 text-primary" />
+    Location
+  </Label>
+
+  <div className="h-9 flex items-center px-3 rounded-md border border-input bg-muted text-sm text-foreground">
+    Mar Mkhayel Church – Near Mazen Pharmacy
+  </div>
+</div>
+
 
               <div className="grid sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
