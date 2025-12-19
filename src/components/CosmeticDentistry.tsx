@@ -54,27 +54,29 @@ const CosmeticDentistry = () => {
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold-dark px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">Premium VIP Service</span>
+              <span className="text-sm font-medium">
+                Premium VIP Service
+              </span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
               Cosmetic <span className="text-gold">Dentistry</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto">
               Luxury Smile Design & Aesthetic Excellence
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-6">
-              <div className="flex items-center gap-2 text-foreground/70">
+              <div className="flex items-center gap-2 text-slate-600">
                 <Award className="w-5 h-5 text-gold" />
                 Premium Materials
               </div>
-              <div className="flex items-center gap-2 text-foreground/70">
+              <div className="flex items-center gap-2 text-slate-600">
                 <Shield className="w-5 h-5 text-gold" />
                 10-Year Warranty
               </div>
-              <div className="flex items-center gap-2 text-foreground/70">
+              <div className="flex items-center gap-2 text-slate-600">
                 <Star className="w-5 h-5 text-gold" />
                 VIP Experience
               </div>
@@ -99,7 +101,7 @@ const CosmeticDentistry = () => {
                 E-max Veneers
               </h2>
 
-              <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 Crafted from lithium disilicate glass-ceramic, E-max veneers
                 provide unmatched translucency, durability, and a perfectly
                 natural appearance.
@@ -114,7 +116,7 @@ const CosmeticDentistry = () => {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-3 text-foreground/90"
+                    className="flex items-center gap-3 text-slate-600"
                   >
                     <span className="w-2 h-2 bg-gold rounded-full" />
                     {item}
@@ -153,7 +155,7 @@ const CosmeticDentistry = () => {
               {compositeImages.map((img, i) => (
                 <div
                   key={i}
-                  className={`rounded-2xl overflow-hidden shadow-lg ${
+                  className={`relative rounded-2xl overflow-hidden shadow-lg ${
                     i === 0 ? "col-span-2 h-64" : "h-48"
                   }`}
                 >
@@ -176,11 +178,11 @@ const CosmeticDentistry = () => {
                 VIP Treatment
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 VIP Composite <span className="text-gold">Veneers</span>
               </h2>
 
-              <p className="text-lg text-foreground/80 mb-6">
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 Same-day smile transformation with fully customizable,
                 non-invasive composite veneers — luxury made accessible.
               </p>
@@ -194,7 +196,7 @@ const CosmeticDentistry = () => {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-3 text-foreground/90"
+                    className="flex items-center gap-3 text-slate-600"
                   >
                     <span className="w-2 h-2 bg-gold rounded-full" />
                     {item}
@@ -206,19 +208,24 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="py-20 bg-foreground text-white">
+      {/* ================= CTA (DARK) ================= */}
+     <section className="py-20 bg-gradient-to-br from-gold/30 via-gold/20 to-gold/30">
+
+
+
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full mb-6">
             <Sparkles className="w-4 h-4" />
             Exclusive Consultation
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready for Your <span className="text-gold">VIP Smile?</span>
           </h2>
 
-          <p className="text-lg text-white/85 mb-10">
+          <p className="text-lg font-bold text-white mb-10">
+
+
             Book your exclusive consultation today and discover the perfect
             cosmetic solution for your smile.
           </p>
@@ -235,7 +242,7 @@ const CosmeticDentistry = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white rounded-full px-8 py-6"
+              className="border-white text-white rounded-full px-8 py-6"
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               WhatsApp

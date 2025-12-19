@@ -7,21 +7,21 @@ const About = () => {
       title: "Education",
       items: [
         "Doctor of Dental Surgery (DDS)",
-        "Lebanese University - Dentistry",
+        "Lebanese University Graduate - Dentistry",
         "Advanced Endodontics Certification",
         "Cosmetic Dentistry Specialization",
       ],
     },
-    {
-      icon: FileCheck,
-      title: "Certifications",
-      items: [
-        "Board Certified Endodontist",
-        "Advanced Aesthetic Dentistry",
-        "Digital Smile Design Expert",
-        "Dental Implantology Certified",
-      ],
-    },
+    // {
+    //   icon: FileCheck,
+    //   title: "Certifications",
+    //   items: [
+    //     "Board Certified Endodontist",
+    //     "Advanced Aesthetic Dentistry",
+    //     "Digital Smile Design Expert",
+    //     "Dental Implantology Certified",
+    //   ],
+    // },
     // {
     //   icon: Award,
     //   title: "Memberships",

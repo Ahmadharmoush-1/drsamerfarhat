@@ -31,6 +31,14 @@ All colors MUST be HSL.
      --muted-foreground: 215 15% 50%;
       --vip-bg: 45 30% 97%;
       --vip-cream: 40 40% 95%;
+       
+    --gold: 43 74% 52%;
+    --gold-light: 43 80% 70%;
+    --gold-dark: 43 74% 42%;
+    --gold-foreground: 30 20% 10%;
+    
+    --vip-bg: 45 30% 97%;
+    --vip-cream: 40 40% 95%;
 
     --gold: 43 74% 52%;
     --gold-light: 43 80% 70%;
