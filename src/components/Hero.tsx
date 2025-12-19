@@ -111,16 +111,17 @@ const Hero = () => {
   <img
     src="/photos/drlogohero.jpg"
     alt="Dr. Samer Farhat"
-    className="block w-[240px] sm:w-[300px] md:w-[360px] lg:w-[420px] xl:w-[480px] object-contain"
+    className="block w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] object-contain"
   />
 
   <span
-    className="-mt-6 text-primary text-xl sm:text-2xl md:text-3xl leading-none"
+    className="-mt-8 text-primary text-2xl sm:text-3xl md:text-4xl leading-none"
     style={{ fontFamily: "'Great Vibes', cursive" }}
   >
     For Dental Solution
   </span>
 </div>
+
 
 
 
