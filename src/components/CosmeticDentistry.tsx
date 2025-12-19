@@ -41,6 +41,10 @@ const CosmeticDentistry = () => {
     "/photos/CompositeVeneer-4.jpg",
   ];
 
+  /* WhatsApp Link */
+  const whatsappLink =
+    "https://wa.me/96176026004?text=Hello%2C%20I%E2%80%99m%20interested%20in%20the%20VIP%20Cosmetic%20Dentistry%20consultation%20(E-max%20and%20Composite%20Veneers).%20I%E2%80%99d%20like%20to%20book%20an%20appointment.";
+
   return (
     <div className="min-h-screen bg-vip">
       <Navbar />
@@ -54,9 +58,7 @@ const CosmeticDentistry = () => {
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold-dark px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">
-                Premium VIP Service
-              </span>
+              <span className="text-sm font-medium">Premium VIP Service</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
@@ -85,6 +87,70 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
+      {/* ================= VIP COMPOSITE ================= */}
+      <section
+        id="vip-composite"
+        className="py-20 bg-gradient-to-b from-vip-cream via-vip to-vip relative overflow-hidden"
+      >
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
+              {compositeImages.map((img, i) => (
+                <div
+                  key={i}
+                  className={`relative rounded-2xl overflow-hidden shadow-lg ${
+                    i === 0 ? "col-span-2 h-64" : "h-48"
+                  }`}
+                >
+                  <img
+                    src={img}
+                    className="w-full h-full object-cover hover:scale-105 transition"
+                  />
+                  {i === 0 && (
+                    <span className="absolute top-4 right-4 bg-gold text-gold-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                      VIP
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <div className="inline-flex items-center gap-2 bg-gold/20 text-gold-dark px-3 py-1.5 rounded-full mb-4 border border-gold/30">
+                <Star className="w-4 h-4 text-gold" />
+                VIP Treatment
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-gold">VIP Composite Veneers</span>
+              </h2>
+
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                Same-day smile transformation with fully customizable,
+                non-invasive composite veneers — luxury made accessible.
+              </p>
+
+              <ul className="space-y-3">
+                {[
+                  "Same-day results",
+                  "Custom shade & shape",
+                  "Reversible procedure",
+                  "Affordable luxury",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-3 text-slate-600"
+                  >
+                    <span className="w-2 h-2 bg-gold rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ================= E-MAX ================= */}
       <section id="emax-veneers" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -97,7 +163,7 @@ const CosmeticDentistry = () => {
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
                 E-max Veneers
               </h2>
 
@@ -144,75 +210,8 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ================= VIP COMPOSITE ================= */}
-      <section
-        id="vip-composite"
-        className="py-20 bg-gradient-to-b from-vip-cream via-vip to-vip relative overflow-hidden"
-      >
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-            <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
-              {compositeImages.map((img, i) => (
-                <div
-                  key={i}
-                  className={`relative rounded-2xl overflow-hidden shadow-lg ${
-                    i === 0 ? "col-span-2 h-64" : "h-48"
-                  }`}
-                >
-                  <img
-                    src={img}
-                    className="w-full h-full object-cover hover:scale-105 transition"
-                  />
-                  {i === 0 && (
-                    <span className="absolute top-4 right-4 bg-gold text-gold-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                      VIP
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <div className="inline-flex items-center gap-2 bg-gold/20 text-gold-dark px-3 py-1.5 rounded-full mb-4 border border-gold/30">
-                <Star className="w-4 h-4 text-gold" />
-                VIP Treatment
-              </div>
-
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                VIP Composite <span className="text-gold">Veneers</span>
-              </h2>
-
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Same-day smile transformation with fully customizable,
-                non-invasive composite veneers — luxury made accessible.
-              </p>
-
-              <ul className="space-y-3">
-                {[
-                  "Same-day results",
-                  "Custom shade & shape",
-                  "Reversible procedure",
-                  "Affordable luxury",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-3 text-slate-600"
-                  >
-                    <span className="w-2 h-2 bg-gold rounded-full" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CTA (DARK) ================= */}
-     <section className="py-20 bg-gradient-to-br from-gold/30 via-gold/20 to-gold/30">
-
-
-
+      {/* ================= CTA ================= */}
+      <section className="py-20 bg-gradient-to-br from-gold/30 via-gold/20 to-gold/30">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full mb-6">
             <Sparkles className="w-4 h-4" />
@@ -224,8 +223,6 @@ const CosmeticDentistry = () => {
           </h2>
 
           <p className="text-lg font-bold text-white mb-10">
-
-
             Book your exclusive consultation today and discover the perfect
             cosmetic solution for your smile.
           </p>
@@ -234,6 +231,7 @@ const CosmeticDentistry = () => {
             <Button
               size="lg"
               className="bg-gold hover:bg-gold-dark text-gold-foreground rounded-full px-8 py-6"
+              onClick={() => window.open(whatsappLink, "_blank")}
             >
               <Phone className="w-5 h-5 mr-2" />
               Book VIP Consultation
@@ -243,6 +241,7 @@ const CosmeticDentistry = () => {
               size="lg"
               variant="outline"
               className="border-white text-white rounded-full px-8 py-6"
+              onClick={() => window.open(whatsappLink, "_blank")}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               WhatsApp

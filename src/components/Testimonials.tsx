@@ -20,18 +20,18 @@ const Testimonials = () => {
       text: "Smile it lets your teeth breathe! Dr. Samer Farhat is an exceptional dentist.",
       video: "/videos/video2.mp4",
     },
-    {
-      name: "Christelle bou ghannam",
-      treatment: "Root Canal Treatment",
-      rating: 5,
-      text: "Now I can make that smile with confidence.",
-    },
-    {
-      name: "Mostafa",
-      treatment: "Cosmetic Dentistry",
-      rating: 5,
-      text: "Whitening & cosmetic work exceeded my expectations. Amazing results!",
-    },
+    // {
+    //   name: "Christelle bou ghannam",
+    //   treatment: "Root Canal Treatment",
+    //   rating: 5,
+    //   text: "Now I can make that smile with confidence.",
+    // },
+    // {
+    //   name: "Mostafa",
+    //   treatment: "Cosmetic Dentistry",
+    //   rating: 5,
+    //   text: "Whitening & cosmetic work exceeded my expectations. Amazing results!",
+    // },
   ];
 
   const nextSlide = () =>

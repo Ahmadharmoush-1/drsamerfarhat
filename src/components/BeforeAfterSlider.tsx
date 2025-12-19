@@ -6,19 +6,25 @@ const BeforeAfterSlider = () => {
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const comparisons = [
+  const comparisons = [ {
+      before: "/photos/beforeafterslide2.jpg",
+      after: "/photos/beforeafterslide2-1.jpg",
+      title: "Dental Implants & Restoration",
+      treatment: "Implants & Cosmetic Work",
+    },
+      {
+      before: "/photos/beforeafterslide4.jpg",
+      after: "/photos/beforeafterslide4-1.jpg",
+      title: "Hollywood Smile Transformation",
+      treatment: "Veneers & Whitening",
+    },
     {
       before: "/photos/beforeafterslide1.jpg",
       after: "/photos/beforeafterslide1-1.jpg",
       title: "Hollywood Smile Transformation",
       treatment: "Veneers & Whitening",
     },
-    {
-      before: "/photos/beforeafterslide2.jpg",
-      after: "/photos/beforeafterslide2-1.jpg",
-      title: "Dental Implants & Restoration",
-      treatment: "Implants & Cosmetic Work",
-    },
+   
     {
       before: "/photos/beforeafterslide3.jpg",
       after: "/photos/beforeafterslide3-1.jpg",

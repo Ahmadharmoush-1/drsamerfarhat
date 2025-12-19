@@ -169,7 +169,7 @@ const Hero = () => {
             <div className="flex items-start justify-center md:justify-start gap-2 pt-2 text-xs sm:text-sm text-muted-foreground">
               <MapPin className="w-4 h-4 mt-0.5 text-primary" />
               <span className="max-w-[260px] leading-snug">
-                Beirut – Chiyah – Mar Mkhayel Church – Near Mazen Pharmacy
+                Beirut – Mar Mkhayel Church – Near Mazen Pharmacy
               </span>
             </div>
           </div>

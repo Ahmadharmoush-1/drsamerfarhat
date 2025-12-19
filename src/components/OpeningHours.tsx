@@ -91,8 +91,8 @@ const OpeningHours = () => {
   }, []);
 
   const days = [
-    { day: "Mon - Fri", hours: "9:00 AM - 7:00 PM" },
-    { day: "Saturday", hours: "10:00 AM - 2:00 PM" },
+    { day: "Mon - Sat", hours: "9:00 AM - 7:00 PM" },
+    
     { day: "Sunday", hours: "Closed" },
   ];
 

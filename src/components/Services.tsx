@@ -1,255 +1,161 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import {
+  Activity,
   Sparkles,
-  Star,
-  Phone,
-  MessageCircle,
-  Award,
-  Shield,
+  Drill,
+  Smile,
+  ChevronRight,
 } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
-const CosmeticDentistry = () => {
-  const location = useLocation();
+const Services = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (location.hash) {
-      setTimeout(() => {
-        const element = document.querySelector(location.hash);
-        if (element) element.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    } else {
-      window.scrollTo(0, 0);
+  const services = [
+    {
+      icon: Smile,
+      title: "Cosmetic Dentistry",
+      description:
+        "Comprehensive aesthetic treatments including whitening, bonding, and smile makeovers.",
+      vip: true,
+      href: "/cosmetic-dentistry",
+    },
+    {
+      icon: Activity,
+      title: "Endodontics",
+      description:
+        "Expert root canal treatments using advanced techniques for pain-free procedures and long-lasting results.",
+    },
+    {
+      icon: Sparkles,
+      title: "Hollywood Smile",
+      description:
+        "Transform your smile with premium veneers designed to create a stunning, natural-looking aesthetic.",
+    },
+    {
+      icon: Drill,
+      title: "Dental Implants",
+      description:
+        "Replace missing teeth with durable, natural-looking implants that restore function and confidence.",
+    },
+  ];
+
+  const handleCardClick = (service: typeof services[number]) => {
+    if (service.href) {
+      navigate(service.href);
     }
-  }, [location]);
-
-  /* IMAGE PATHS */
-  const emaxImages = [
-    "/photos/beforeafter5.jpg",
-    "/photos/beforeafter5.jpg",
-    "/photos/beforeafter5.jpg",
-    "/photos/beforeafter5.jpg",
-  ];
-
-  const compositeImages = [
-    "/photos/CompositeVeneer-1.jpg",
-    "/photos/CompositeVeneer-2.jpg",
-    "/photos/CompositeVeneer-3.jpg",
-    "/photos/CompositeVeneer-4.jpg",
-  ];
+  };
 
   return (
-    <div className="min-h-screen bg-vip">
-      <Navbar />
-
-      {/* ================= HERO ================= */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-vip-cream via-vip to-white" />
-        <div className="absolute inset-0 bg-gold/10" />
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold-dark px-4 py-2 rounded-full mb-6">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">
-                Premium VIP Service
-              </span>
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
-              Cosmetic <span className="text-gold">Dentistry</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-foreground/90 max-w-2xl mx-auto">
-              Luxury Smile Design & Aesthetic Excellence
-            </p>
-
-            <div className="mt-10 flex flex-wrap justify-center gap-6">
-              <div className="flex items-center gap-2 text-foreground/90">
-                <Award className="w-5 h-5 text-gold" />
-                Premium Materials
-              </div>
-              <div className="flex items-center gap-2 text-foreground/90">
-                <Shield className="w-5 h-5 text-gold" />
-                10-Year Warranty
-              </div>
-              <div className="flex items-center gap-2 text-foreground/90">
-                <Star className="w-5 h-5 text-gold" />
-                VIP Experience
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= E-MAX ================= */}
-      <section id="emax-veneers" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4">
-                <Award className="w-4 h-4" />
-                <span className="text-xs font-semibold uppercase">
-                  Premium Ceramic Veneers
-                </span>
-              </div>
-
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                E-max Veneers
-              </h2>
-
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Crafted from lithium disilicate glass-ceramic, E-max veneers
-                provide unmatched translucency, durability, and a perfectly
-                natural appearance.
-              </p>
-
-             <ul className="space-y-3">
-  {[
-    "Durability 15+ years",
-    "Natural enamel-like translucency",
-    "Stain-resistant & biocompatible",
-    "Minimal tooth preparation",
-  ].map((item, i) => (
-    <li
-      key={i}
-      className="flex items-center gap-3 text-[#9AD0FF]"
+    <section
+      id="services"
+      className="py-12 bg-gradient-to-b from-background via-background/95 to-background/90 relative overflow-hidden"
     >
-      <span className="w-2 h-2 bg-gold rounded-full" />
-      {item}
-    </li>
-  ))}
-</ul>
+      <div className="container mx-auto px-4">
 
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              {emaxImages.map((img, i) => (
-                <div
-                  key={i}
-                  className={`rounded-2xl overflow-hidden shadow-lg ${
-                    i === 0 ? "col-span-2 h-64" : "h-48"
-                  }`}
-                >
-                  <img
-                    src={img}
-                    className="w-full h-full object-cover hover:scale-105 transition"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= VIP COMPOSITE ================= */}
-      <section
-        id="vip-composite"
-        className="py-20 bg-gradient-to-b from-vip-cream via-vip to-vip relative overflow-hidden"
-      >
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-            <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
-              {compositeImages.map((img, i) => (
-                <div
-                  key={i}
-                  className={`relative rounded-2xl overflow-hidden shadow-lg ${
-                    i === 0 ? "col-span-2 h-64" : "h-48"
-                  }`}
-                >
-                  <img
-                    src={img}
-                    className="w-full h-full object-cover hover:scale-105 transition"
-                  />
-                  {i === 0 && (
-                    <span className="absolute top-4 right-4 bg-gold text-gold-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                      VIP
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <div className="inline-flex items-center gap-2 bg-gold/20 text-gold-dark px-3 py-1.5 rounded-full mb-4 border border-gold/30">
-                <Star className="w-4 h-4 text-gold" />
-                VIP Treatment
-              </div>
-
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                VIP Composite <span className="text-gold">Veneers</span>
-              </h2>
-
-              <p className="text-lg text-foreground/90 mb-6">
-                Same-day smile transformation with fully customizable,
-                non-invasive composite veneers — luxury made accessible.
-              </p>
-
-              <ul className="space-y-3">
-                {[
-                  "Same-day results",
-                  "Custom shade & shape",
-                  "Reversible procedure",
-                  "Affordable luxury",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-3 text-foreground"
-                  >
-                    <span className="w-2 h-2 bg-gold rounded-full" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CTA ================= */}
-      <section className="py-20 bg-foreground">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full mb-6">
-            <Sparkles className="w-4 h-4" />
-            Exclusive Consultation
-          </div>
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#9AD0FF]">
-            Ready for Your <span className="text-gold">VIP Smile?</span>
+        {/* HEADER */}
+        <div className="text-center mb-10 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+            Areas of Dental Practice
           </h2>
-
-          <p className="text-lg text-[#9AD0FF] mb-10">
-            Book your exclusive consultation today and discover the perfect
-            cosmetic solution for your smile.
+          <p className="text-sm md:text-base text-muted-foreground">
+            What we offer
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-gold hover:bg-gold-dark text-gold-foreground rounded-full px-8 py-6"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Book VIP Consultation
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-[#9AD0FF]/40 text-[#9AD0FF] rounded-full px-8 py-6"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              WhatsApp
-            </Button>
-          </div>
         </div>
-      </section>
 
-      <Footer />
-    </div>
+        {/* SERVICE CARDS */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              onClick={() => handleCardClick(service)}
+              className={`
+                group rounded-2xl border transition-all duration-300 animate-fade-in
+                ${service.href ? "cursor-pointer" : ""}
+                ${
+                  service.vip
+                    ? "bg-gradient-to-br from-yellow-300/20 via-amber-200/10 to-yellow-400/20 border-yellow-400/50 shadow-md"
+                    : "bg-card border-border hover:border-primary/50 hover:shadow-md"
+                }
+              `}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="p-4 flex flex-col items-start">
+
+                {/* ICON */}
+                <div
+                  className={`
+                    w-10 h-10 rounded-lg flex items-center justify-center mb-3
+                    ${
+                      service.vip
+                        ? "bg-yellow-400/20 text-yellow-600 shadow-sm"
+                        : "bg-primary/10 text-primary"
+                    }
+                  `}
+                >
+                  <service.icon className="w-5 h-5" />
+                </div>
+
+                {/* TITLE */}
+                <h3
+                  className={`text-base font-semibold mb-1 ${
+                    service.vip ? "text-yellow-700" : "text-foreground"
+                  }`}
+                >
+                  {service.title}
+                </h3>
+
+                {/* VIP BADGE */}
+                {service.vip && (
+                  <span className="text-[10px] uppercase font-semibold tracking-wide text-yellow-600 mb-1">
+                    ✨ VIP Service
+                  </span>
+                )}
+
+                {/* DESCRIPTION */}
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                  {service.description}
+                </p>
+
+                {/* CTA → ONLY FOR COSMETIC DENTISTRY */}
+                {service.vip && (
+                  <Button
+                    variant="ghost"
+                    className="p-0 h-auto text-xs font-semibold text-yellow-600 hover:text-yellow-700 group/btn"
+                  >
+                    More info
+                    <ChevronRight
+                      size={16}
+                      className="ml-1 group-hover/btn:translate-x-1 transition-transform"
+                    />
+                  </Button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* DOTS (OPTIONAL UI – KEPT) */}
+        <div className="flex justify-center gap-2">
+          {services.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? "bg-primary w-6"
+                  : "bg-muted w-2 hover:bg-muted-foreground/30"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+      </div>
+    </section>
   );
 };
 
-export default CosmeticDentistry;
+export default Services;
