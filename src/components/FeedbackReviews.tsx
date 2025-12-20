@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Star, Send, User, Calendar, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +14,7 @@ interface Review {
 
 const STORAGE_KEY = "dr_samer_reviews";
 
+/* -------------------- STORAGE HELPERS -------------------- */
 const loadReviews = (): Review[] => {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -33,6 +34,7 @@ const addReview = (review: Review): void => {
   saveReviews(reviews);
 };
 
+/* -------------------- COMPONENT -------------------- */
 const FeedbackReviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [name, setName] = useState("");
@@ -42,17 +44,61 @@ const FeedbackReviews = () => {
   const [errors, setErrors] = useState<{ name?: string; rating?: string; message?: string }>({});
   const [success, setSuccess] = useState(false);
 
-  // ⭐ ADMIN MODE (password protected)
+  /* ⭐ ADMIN MODE */
   const [adminMode, setAdminMode] = useState(false);
+
+  /* ⭐ AUTO SCROLL REF */
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setReviews(loadReviews());
   }, []);
 
-  // ⭐ ADMIN LOGIN FUNCTION
+  /* -------------------- AUTO SCROLL LOGIC -------------------- */
+  useEffect(() => {
+  if (!scrollRef.current || reviews.length === 0) return;
+
+  const container = scrollRef.current;
+  let animationFrameId: number;
+  let paused = false;
+
+ const speed = 0.2;
+// adjust speed here
+
+  const scroll = () => {
+    if (!paused) {
+      container.scrollLeft += speed;
+
+      if (
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 1
+      ) {
+        container.scrollLeft = 0;
+      }
+    }
+
+    animationFrameId = requestAnimationFrame(scroll);
+  };
+
+  animationFrameId = requestAnimationFrame(scroll);
+
+  const handleMouseEnter = () => (paused = true);
+  const handleMouseLeave = () => (paused = false);
+
+  container.addEventListener("mouseenter", handleMouseEnter);
+  container.addEventListener("mouseleave", handleMouseLeave);
+
+  return () => {
+    cancelAnimationFrame(animationFrameId);
+    container.removeEventListener("mouseenter", handleMouseEnter);
+    container.removeEventListener("mouseleave", handleMouseLeave);
+  };
+}, [reviews]);
+
+
+  /* -------------------- ADMIN LOGIN -------------------- */
   const handleAdminLogin = () => {
     const pass = prompt("Enter admin password:");
-
     if (pass === "drsamer$") {
       setAdminMode(true);
       alert("Admin mode activated.");
@@ -61,29 +107,25 @@ const FeedbackReviews = () => {
     }
   };
 
-  // ⭐ DELETE REVIEW
   const deleteReview = (id: string) => {
     if (!window.confirm("Are you sure you want to delete this review?")) return;
-
     const updated = reviews.filter((r) => r.id !== id);
     setReviews(updated);
     saveReviews(updated);
   };
 
+  /* -------------------- FORM -------------------- */
   const validateForm = (): boolean => {
     const newErrors: { name?: string; rating?: string; message?: string } = {};
-    
     if (!name.trim()) newErrors.name = "Name is required";
     if (rating === 0) newErrors.rating = "Please select a rating";
     if (!message.trim()) newErrors.message = "Message is required";
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
 
     const newReview: Review = {
@@ -100,216 +142,140 @@ const FeedbackReviews = () => {
 
     addReview(newReview);
     setReviews(loadReviews());
-    
+
     setName("");
     setRating(0);
     setMessage("");
     setErrors({});
     setSuccess(true);
-    
     setTimeout(() => setSuccess(false), 3000);
   };
 
-  const renderStars = (count: number, interactive = false, size = "w-5 h-5") => {
-    return (
-      <div className="flex gap-1">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <button
-            key={star}
-            type="button"
-            disabled={!interactive}
-            className={`transition-all duration-200 ${interactive ? "cursor-pointer hover:scale-110" : "cursor-default"}`}
-            onMouseEnter={() => interactive && setHoverRating(star)}
-            onMouseLeave={() => interactive && setHoverRating(0)}
-            onClick={() => interactive && setRating(star)}
-          >
-            <Star
-              className={`${size} transition-colors duration-200 ${
-                star <= (interactive ? hoverRating || rating : count)
-                  ? "fill-yellow-400 text-yellow-400"
-                  : "fill-transparent text-muted-foreground/40"
-              }`}
-            />
-          </button>
-        ))}
-      </div>
-    );
-  };
-
-  return (
-<section
-  id="feedback"
-  className="py-12 md:py-20 bg-gradient-to-b from-background to-card/20"
->
-  <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-    
-    {/* Section Header */}
-    <div className="text-center mb-8 md:mb-12">
-      <span className="inline-block px-3 py-1 mb-3 text-[10px] sm:text-xs font-medium uppercase bg-primary/10 text-primary rounded-full">
-        Your Voice Matters
-      </span>
-
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent leading-tight">
-        Patient Feedback
-      </h2>
-
-      <p className="text-muted-foreground text-sm sm:text-base max-w-md mx-auto">
-        Share your experience with Dr. Samer Farhat
-      </p>
-
-      {/* Admin Login */}
-      {!adminMode && (
+  /* -------------------- STAR RENDER -------------------- */
+  const renderStars = (count: number, interactive = false, size = "w-5 h-5") => (
+    <div className="flex gap-1">
+      {[1, 2, 3, 4, 5].map((star) => (
         <button
-          onClick={handleAdminLogin}
-          className="mt-2 text-[11px] text-primary underline"
+          key={star}
+          type="button"
+          disabled={!interactive}
+          onMouseEnter={() => interactive && setHoverRating(star)}
+          onMouseLeave={() => interactive && setHoverRating(0)}
+          onClick={() => interactive && setRating(star)}
+          className={`transition-transform ${
+            interactive ? "hover:scale-110" : "cursor-default"
+          }`}
         >
-          Admin Login
+          <Star
+            className={`${size} ${
+              star <= (interactive ? hoverRating || rating : count)
+                ? "fill-yellow-400 text-yellow-400"
+                : "fill-transparent text-muted-foreground/40"
+            }`}
+          />
         </button>
-      )}
-
-      {adminMode && (
-        <p className="mt-2 text-[11px] text-primary">Admin Mode Enabled</p>
-      )}
+      ))}
     </div>
+  );
 
-    {/* Review Form */}
-    <div className="bg-card/70 backdrop-blur-sm border border-border/40 rounded-xl p-4 sm:p-6 shadow-sm mb-10">
-      <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-        <Star className="w-4 h-4 text-primary" />
-        Leave a Review
-      </h3>
+  /* -------------------- JSX -------------------- */
+  return (
+    <section id="feedback" className="py-12 md:py-20 bg-gradient-to-b from-background to-card/20">
+      <div className="container mx-auto px-4 md:px-6 max-w-3xl">
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        
-        {/* Name */}
-        <div>
-          <label className="block text-xs font-medium mb-1">Your Name</label>
-          <Input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-            className="h-9 text-sm"
-          />
-          {errors.name && <p className="text-destructive text-[11px] mt-1">{errors.name}</p>}
+        {/* HEADER */}
+        <div className="text-center mb-10">
+          <span className="inline-block px-3 py-1 mb-3 text-xs uppercase bg-primary/10 text-primary rounded-full">
+            Your Voice Matters
+          </span>
+          <h2 className="text-3xl font-bold mb-2">Patient Feedback</h2>
+          <p className="text-muted-foreground text-sm">
+            Share your experience with Dr. Samer Farhat
+          </p>
+
+          {!adminMode && (
+            <button onClick={handleAdminLogin} className="mt-2 text-xs underline text-primary">
+              Admin Login
+            </button>
+          )}
+          {adminMode && (
+            <p className="mt-2 text-xs text-primary">Admin Mode Enabled</p>
+          )}
         </div>
 
-        {/* Rating */}
-        <div>
-          <label className="block text-xs font-medium mb-1">Your Rating</label>
+        {/* FORM */}
+        <div className="bg-card/70 border rounded-xl p-6 mb-12">
+          <h3 className="font-semibold mb-4 flex items-center gap-2">
+            <Star className="w-4 h-4 text-primary" /> Leave a Review
+          </h3>
 
-          <div className="flex items-center gap-3">
-            {renderStars(rating, true, "w-5 h-5")}
-            {rating > 0 && (
-              <span className="text-xs text-muted-foreground">
-                {rating} stars
-              </span>
-            )}
-          </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
+            {errors.name && <p className="text-xs text-red-500">{errors.name}</p>}
 
-          {errors.rating && <p className="text-destructive text-[11px] mt-1">{errors.rating}</p>}
+            {renderStars(rating, true)}
+
+            <Textarea
+              rows={3}
+              placeholder="Share your experience..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            {errors.message && <p className="text-xs text-red-500">{errors.message}</p>}
+
+            <Button className="flex items-center gap-1">
+              <Send className="w-4 h-4" /> Submit
+            </Button>
+
+            {success && <p className="text-xs text-green-500">Review submitted!</p>}
+          </form>
         </div>
 
-        {/* Message */}
-        <div>
-          <label className="block text-xs font-medium mb-1">Your Message</label>
-          <Textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={3}
-            className="text-sm resize-none"
-            placeholder="Share your experience..."
-          />
-          {errors.message && <p className="text-destructive text-[11px] mt-1">{errors.message}</p>}
-        </div>
+        {/* REVIEWS */}
+        <h3 className="font-semibold mb-4 flex items-center gap-2">
+          <User className="w-4 h-4 text-primary" /> Recent Reviews
+        </h3>
 
-        {/* Submit */}
-        <Button className="w-full sm:w-auto px-6 h-9 text-sm">
-          <Send className="w-4 h-4 mr-1" />
-          Submit
-        </Button>
+        {reviews.length === 0 ? (
+          <p className="text-center text-muted-foreground text-sm">No reviews yet.</p>
+        ) : (
+         <div
+  ref={scrollRef}
+  className="flex gap-4 overflow-x-hidden pb-4 no-scrollbar"
+>
 
-        {success && (
-          <div className="text-green-500 text-xs mt-2">Review submitted!</div>
-        )}
-      </form>
-    </div>
-
-    {/* Reviews List (⭐ HORIZONTAL CAROUSEL) */}
-    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-      <User className="w-4 h-4 text-primary" />
-      Recent Reviews
-      {reviews.length > 0 && (
-        <span className="text-xs text-muted-foreground">({reviews.length})</span>
-      )}
-    </h3>
-
-    {reviews.length === 0 ? (
-      <div className="text-center py-10 bg-card/60 border border-border/30 rounded-xl">
-        <Star className="w-10 h-10 text-muted-foreground/30 mx-auto mb-2" />
-        <p className="text-muted-foreground text-sm">
-          No reviews yet. Be the first!
-        </p>
-      </div>
-    ) : (
-      <div
-        className="
-          flex gap-4 overflow-x-auto pb-4
-          snap-x snap-mandatory scroll-smooth
-          no-scrollbar
-        "
-      >
-        {reviews.map((review) => (
-          <div
-            key={review.id}
-            className="
-              min-w-[260px] sm:min-w-[300px]
-              snap-start
-              bg-card/70 backdrop-blur-md
-              border border-border/40 rounded-xl
-              p-4 shadow-sm
-              flex-shrink-0
-            "
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between mb-2">
-              <div className="flex items-center gap-2">
-                <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold text-sm">
-                  {review.name.charAt(0).toUpperCase()}
-                </div>
-                <div>
-                  <p className="font-medium text-sm">{review.name}</p>
-                  {renderStars(review.rating)}
-                </div>
-              </div>
-
-              <span className="text-[11px] text-muted-foreground flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                {review.date}
-              </span>
-            </div>
-
-            {/* Message */}
-            <p className="text-[13px] text-muted-foreground leading-relaxed">
-              {review.message}
-            </p>
-
-            {/* Admin Delete */}
-            {adminMode && (
-              <button
-                onClick={() => deleteReview(review.id)}
-                className="mt-3 text-red-500 text-[11px] flex items-center gap-1 hover:underline"
+            {reviews.map((review) => (
+              <div
+                key={review.id}
+                className="min-w-[280px] bg-card/70 border rounded-xl p-4 flex-shrink-0"
               >
-                <Trash className="w-3 h-3" />
-                Delete Review
-              </button>
-            )}
-          </div>
-        ))}
-      </div>
-    )}
+                <div className="flex justify-between mb-2">
+                  <div>
+                    <p className="font-medium text-sm">{review.name}</p>
+                    {renderStars(review.rating)}
+                  </div>
+                  <span className="text-xs text-muted-foreground flex items-center gap-1">
+                    <Calendar className="w-3 h-3" /> {review.date}
+                  </span>
+                </div>
 
-  </div>
-</section>
+                <p className="text-sm text-muted-foreground">{review.message}</p>
+
+                {adminMode && (
+                  <button
+                    onClick={() => deleteReview(review.id)}
+                    className="mt-3 text-xs text-red-500 flex items-center gap-1"
+                  >
+                    <Trash className="w-3 h-3" /> Delete
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div>
+    </section>
   );
 };
 

@@ -18,16 +18,10 @@ const Services = () => {
       icon: Smile,
       title: "Cosmetic Dentistry",
       description:
-        "Comprehensive aesthetic treatments including E-max Veneers , Premium Composite Veneerrs , Whitening, Bonding, and Smile makeovers.",
+        "Comprehensive aesthetic treatments including E-max Veneers, Premium Composite Veneers, Whitening, Bonding, and Smile makeovers.",
       vip: true,
       href: "/cosmetic-dentistry",
     },
-    // {
-    //   icon: Activity,
-    //   title: "Endodontics",
-    //   description:
-    //     "Expert root canal treatments using advanced techniques for pain-free procedures and long-lasting results.",
-    // },
     {
       icon: Sparkles,
       title: "Hollywood Smile",
@@ -72,25 +66,25 @@ const Services = () => {
               key={index}
               onClick={() => handleCardClick(service)}
               className={`
-                group rounded-2xl border transition-all duration-300 animate-fade-in
+                group relative overflow-hidden rounded-2xl border transition-all duration-500 animate-fade-in
                 ${service.href ? "cursor-pointer" : ""}
                 ${
                   service.vip
-                    ? "bg-gradient-to-br from-yellow-300/20 via-amber-200/10 to-yellow-400/20 border-yellow-400/50 shadow-md"
+                    ? "bg-gradient-to-br from-yellow-300/20 via-amber-200/10 to-yellow-400/20 border-yellow-400/60 shadow-lg hover:shadow-yellow-400/40 shine-effect"
                     : "bg-card border-border hover:border-primary/50 hover:shadow-md"
                 }
               `}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="p-4 flex flex-col items-start">
+              <div className="p-4 flex flex-col items-start relative z-10">
 
                 {/* ICON */}
                 <div
                   className={`
-                    w-10 h-10 rounded-lg flex items-center justify-center mb-3
+                    w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-all duration-300
                     ${
                       service.vip
-                        ? "bg-yellow-400/20 text-yellow-600 shadow-sm"
+                        ? "bg-yellow-400/30 text-yellow-700 shadow-[0_0_20px_rgba(250,204,21,0.6)]"
                         : "bg-primary/10 text-primary"
                     }
                   `}
@@ -119,7 +113,7 @@ const Services = () => {
                   {service.description}
                 </p>
 
-                {/* CTA → ONLY FOR COSMETIC DENTISTRY */}
+                {/* CTA */}
                 {service.vip && (
                   <Button
                     variant="ghost"
@@ -133,11 +127,16 @@ const Services = () => {
                   </Button>
                 )}
               </div>
+
+              {/* SUBTLE VIP PULSE */}
+              {service.vip && (
+                <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-yellow-400 animate-ping" />
+              )}
             </div>
           ))}
         </div>
 
-        {/* DOTS (OPTIONAL UI – KEPT) */}
+        {/* DOTS */}
         <div className="flex justify-center gap-2">
           {services.map((_, index) => (
             <button

@@ -14,8 +14,8 @@ const Testimonials = () => {
       video: "/videos/video1.mp4",
     },
     {
-      name: "Anthonygh89",
-      treatment: "Dental Implants",
+      name: "Aya",
+      treatment: "Premium Composite Veneers",
       rating: 5,
       text: "Smile it lets your teeth breathe! Dr. Samer Farhat is an exceptional dentist.",
       video: "/videos/video2.mp4",

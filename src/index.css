@@ -103,6 +103,31 @@ All colors MUST be HSL.
     --glow-accent: 0 0 40px hsl(210 90% 60% / 0.3);
   }
 }
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s ease-in-out infinite;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 
 @layer base {
   * {
