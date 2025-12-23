@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   Sparkles,
@@ -11,6 +11,26 @@ import {
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const FadeImage = ({ src }: { src: string }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <img
+      src={src}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setLoaded(true)}
+      className={`
+        w-full h-full
+        object-cover
+        scale-[1.02]
+        transition-all duration-500
+        ${loaded ? "opacity-100" : "opacity-0"}
+      `}
+    />
+  );
+};
 
 const CosmeticDentistry = () => {
   const location = useLocation();
@@ -26,27 +46,24 @@ const CosmeticDentistry = () => {
     }
   }, [location]);
 
-  /* IMAGE PATHS */
   const emaxImages = [
-    "/photos/emax-3.jpg",
-   
-    "/photos/emax-2.jpg",
-    
-    "/photos/emax-4.jpg",
-    "/photos/emax-5.jpg",
-     "/photos/emax-1.jpg",
-    "/photos/emax-6.jpg",
-    "/photos/emax-7.jpg",
+    "/photos/emax-3.webp",
+    "/photos/emax-2.webp",
+    "/photos/emax-4.webp",
+    "/photos/emax-5.webp",
+    "/photos/emax-1.webp",
+    "/photos/emax-6.webp",
+    "/photos/emax-7.webp",
   ];
 
   const compositeImages = [
-    "/photos/CompositeVeneer-1.jpg",
-    "/photos/CompositeVeneer-2.jpg",
-    "/photos/CompositeVeneer-3.jpg",
-    "/photos/CompositeVeneer-4.jpg",
-    "/photos/compositeVeneer-5.jpg",
-    "/photos/compositeVeneer-6.jpg",
-    "/photos/compositeVeneer-7.jpg",
+    "/photos/CompositeVeneer-1.webp",
+    "/photos/CompositeVeneer-2.webp",
+    "/photos/CompositeVeneer-3.webp",
+    "/photos/CompositeVeneer-4.webp",
+    "/photos/compositeVeneer-5.webp",
+    "/photos/compositeVeneer-6.webp",
+    "/photos/compositeVeneer-7.webp",
   ];
 
   const whatsappLink =
@@ -56,16 +73,16 @@ const CosmeticDentistry = () => {
     <div className="min-h-screen bg-vip">
       <Navbar />
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className="pt-24 pb-14 md:pt-32 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-vip-cream via-vip to-white" />
         <div className="absolute inset-0 bg-gold/10" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold-dark px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-medium">Premium VIP Service</span>
+              Premium VIP Service
             </div>
 
             <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold mb-4">
@@ -94,44 +111,27 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ================= VIP COMPOSITE ================= */}
+      {/* VIP COMPOSITE */}
       <section
         id="vip-composite"
         className="py-16 md:py-20 bg-gradient-to-b from-vip-cream via-vip to-vip"
       >
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
 
-            {/* IMAGES */}
-            <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {compositeImages.map((img, i) => (
                 <div
-  key={i}
-  className={`
-    relative
-    rounded-2xl
-    overflow-hidden
-    shadow-lg
-    bg-neutral-100
-    ${i === 0 ? "col-span-2 h-60 md:h-64" : "h-48 md:h-52"}
-  `}
->
-  <img
-    src={img}
-    className="
-      w-full h-full
-      object-cover
-      scale-[1.02]
-      transition-transform duration-500
-      hover:scale-[1.06]
-    "
-  />
-</div>
-
+                  key={i}
+                  className={`relative rounded-2xl overflow-hidden shadow-lg bg-neutral-100 ${
+                    i === 0 ? "col-span-2 h-60 md:h-64" : "h-48 md:h-52"
+                  }`}
+                >
+                  <FadeImage src={img} />
+                </div>
               ))}
             </div>
 
-            {/* TEXT */}
             <div>
               <div className="inline-flex items-center gap-2 bg-gold/20 text-gold-dark px-3 py-1.5 rounded-full mb-4 border border-gold/30">
                 <Star className="w-4 h-4 text-gold" />
@@ -142,7 +142,7 @@ const CosmeticDentistry = () => {
                 <span className="text-gold">VIP Composite Veneers</span>
               </h2>
 
-              <p className="text-slate-600 mb-6 text-lg leading-relaxed">
+              <p className="text-slate-600 mb-6 text-lg">
                 Same-day smile transformation with fully customizable,
                 non-invasive composite veneers — luxury made accessible.
               </p>
@@ -161,17 +161,15 @@ const CosmeticDentistry = () => {
                 ))}
               </ul>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ================= E-MAX ================= */}
+      {/* E-MAX */}
       <section id="emax-veneers" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
 
-            {/* TEXT */}
             <div>
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full mb-4">
                 <Award className="w-4 h-4" />
@@ -182,7 +180,7 @@ const CosmeticDentistry = () => {
                 E-max Veneers
               </h2>
 
-              <p className="text-slate-600 mb-6 text-lg leading-relaxed">
+              <p className="text-slate-600 mb-6 text-lg">
                 Crafted from lithium disilicate glass-ceramic, E-max veneers
                 provide unmatched translucency, durability, and a perfectly
                 natural appearance.
@@ -203,32 +201,16 @@ const CosmeticDentistry = () => {
               </ul>
             </div>
 
-            {/* IMAGES */}
             <div className="grid grid-cols-2 gap-4">
               {emaxImages.map((img, i) => (
                 <div
-  key={i}
-  className={`
-    relative
-    rounded-2xl
-    overflow-hidden
-    shadow-lg
-    bg-neutral-100
-    ${i === 0 ? "col-span-2 h-60 md:h-64" : "h-48 md:h-52"}
-  `}
->
-  <img
-    src={img}
-    className="
-      w-full h-full
-      object-cover
-      scale-[1.02]
-      transition-transform duration-500
-      hover:scale-[1.06]
-    "
-  />
-</div>
-
+                  key={i}
+                  className={`relative rounded-2xl overflow-hidden shadow-lg bg-neutral-100 ${
+                    i === 0 ? "col-span-2 h-60 md:h-64" : "h-48 md:h-52"
+                  }`}
+                >
+                  <FadeImage src={img} />
+                </div>
               ))}
             </div>
 
@@ -236,7 +218,7 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
+      {/* CTA */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-gold/30 via-gold/20 to-gold/30">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full mb-6">
