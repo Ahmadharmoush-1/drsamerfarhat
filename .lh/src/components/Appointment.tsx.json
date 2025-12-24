@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 35,
+            "activePatchIndex": 36,
             "patches": [
                 {
                     "date": 1763825229093,
@@ -148,6 +148,10 @@
                 {
                     "date": 1766150981891,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -140,25 +140,20 @@\n                   />\r\n                 </div>\r\n               </div>\r\n \r\n-              <div className=\"space-y-1\">\r\n-                <Label className=\"text-xs flex items-center gap-1\">\r\n-                  <MapPin className=\"w-3 h-3 text-primary\" /> Location\r\n-                </Label>\r\n-                <Select\r\n-                  value={formData.location}\r\n-                  onValueChange={(v) => setFormData({ ...formData, location: v })}\r\n-                >\r\n-                  <SelectTrigger className=\"h-9 text-sm\">\r\n-                    <SelectValue placeholder=\"Beirut Clinic\" />\r\n-                  </SelectTrigger>\r\n-                  <SelectContent>\r\n-                    <SelectItem value=\"Beirut Clinic\">CBeirut Clinic</SelectItem>\r\n-                  </SelectContent>\r\n-                </Select>\r\n-              </div>\r\n+            <div className=\"space-y-1\">\r\n+  <Label className=\"text-xs flex items-center gap-1\">\r\n+    <MapPin className=\"w-3 h-3 text-primary\" />\r\n+    Location\r\n+  </Label>\r\n \r\n+  <div className=\"h-9 flex items-center px-3 rounded-md border border-input bg-muted text-sm text-foreground\">\r\n+    Mar Mkhayel Church – Near Mazen Pharmacy\r\n+  </div>\r\n+</div>\r\n+\r\n+\r\n               <div className=\"grid sm:grid-cols-2 gap-3\">\r\n                 <div className=\"space-y-1\">\r\n                   <Label className=\"text-xs flex items-center gap-1\">\r\n                     <Calendar className=\"w-3 h-3 text-primary\" /> Date\r\n"
+                },
+                {
+                    "date": 1766572480085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,16 +21,17 @@\n \r\n const WHATSAPP_NUMBER = \"96176026004\";\r\n \r\n const Appointment = () => {\r\n-  const [formData, setFormData] = useState({\r\n-    name: \"\",\r\n-    phone: \"\",\r\n-    date: \"\",\r\n-    time: \"\",\r\n-    location: \"\",\r\n-  });\r\n+const [formData, setFormData] = useState({\r\n+  name: \"\",\r\n+  phone: \"\",\r\n+  date: \"\",\r\n+  time: \"\",\r\n+  location: \"Mar Mkhayel Church – Near Mazen Pharmacy\",\r\n+});\r\n \r\n+\r\n   const [bookedSlots, setBookedSlots] = useState<Record<string, string[]>>({});\r\n   const [isSubmitting, setIsSubmitting] = useState(false);\r\n \r\n   useEffect(() => {\r\n"
                 }
             ],
             "date": 1763825229093,

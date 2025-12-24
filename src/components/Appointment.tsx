@@ -22,13 +22,14 @@ const TIME_SLOTS = [
 const WHATSAPP_NUMBER = "96176026004";
 
 const Appointment = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    date: "",
-    time: "",
-    location: "",
-  });
+const [formData, setFormData] = useState({
+  name: "",
+  phone: "",
+  date: "",
+  time: "",
+  location: "Mar Mkhayel Church – Near Mazen Pharmacy",
+});
+
 
   const [bookedSlots, setBookedSlots] = useState<Record<string, string[]>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
