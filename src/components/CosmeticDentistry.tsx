@@ -22,9 +22,12 @@ const FadeImage = ({ src }: { src: string }) => {
       loading="lazy"
       decoding="async"
       onLoad={() => setLoaded(true)}
-      className={`w-full h-full object-cover transition-opacity duration-500 ${
-        loaded ? "opacity-100" : "opacity-0"
-      }`}
+      className={`
+        w-full h-full
+        object-contain md:object-cover
+        transition-opacity duration-500
+        ${loaded ? "opacity-100" : "opacity-0"}
+      `}
     />
   );
 };
@@ -46,10 +49,10 @@ const SwipeGallery = ({ images }: { images: string[] }) => {
         <div
           key={i}
           className="
-            min-w-[280px]
-            sm:min-w-[320px]
+            min-w-[260px]
+            sm:min-w-[300px]
             md:min-w-[360px]
-            h-48 sm:h-56 md:h-64
+            h-44 sm:h-52 md:h-64
             snap-center
             rounded-2xl
             overflow-hidden
@@ -93,11 +96,9 @@ const CosmeticDentistry = () => {
 
   const emaxImages = [
     "/photos/emax-3.webp",
-     "/photos/emax-4.webp",
+    "/photos/emax-4.webp",
     "/photos/emax-1.webp",
     "/photos/emax-2.webp",
-    
-   
     "/photos/emax-5.webp",
     "/photos/emax-6.webp",
     "/photos/emax-7.webp",
@@ -129,21 +130,6 @@ const CosmeticDentistry = () => {
             <p className="text-base md:text-2xl text-slate-600 max-w-2xl mx-auto">
               Luxury Smile Design & Aesthetic Excellence
             </p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-6">
-              <div className="flex items-center gap-2 text-slate-600">
-                <Award className="w-5 h-5 text-gold" />
-                Premium Materials
-              </div>
-              <div className="flex items-center gap-2 text-slate-600">
-                <Shield className="w-5 h-5 text-gold" />
-                10-Year Warranty
-              </div>
-              <div className="flex items-center gap-2 text-slate-600">
-                <Star className="w-5 h-5 text-gold" />
-                VIP Experience
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -161,31 +147,16 @@ const CosmeticDentistry = () => {
                 VIP Treatment
               </div>
 
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                <span className="text-gold">VIP Composite Veneers</span>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gold">
+                VIP Composite Veneers
               </h2>
 
               <p className="text-slate-600 mb-6 text-lg">
                 Same-day smile transformation with fully customizable,
                 non-invasive composite veneers.
               </p>
-
-              <ul className="space-y-3">
-                {[
-                  "Same-day results",
-                  "Custom shade & shape",
-                  
-                  "Affordable luxury",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-600">
-                    <span className="w-2 h-2 bg-gold rounded-full" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            {/* SWIPE COMPOSITE IMAGES */}
             <SwipeGallery images={compositeImages} />
           </div>
         </div>
@@ -196,38 +167,21 @@ const CosmeticDentistry = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
             <div>
-            <div className="inline-flex items-center gap-2 bg-gold/15 text-gold px-3 py-1.5 rounded-full mb-4 border border-gold/30">
-  <Award className="w-4 h-4 text-gold" />
-  Premium Ceramic Veneers
-</div>
-
+              <div className="inline-flex items-center gap-2 bg-gold/15 text-gold px-3 py-1.5 rounded-full mb-4 border border-gold/30">
+                <Award className="w-4 h-4 text-gold" />
+                Premium Ceramic Veneers
+              </div>
 
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gold">
-  E-max Veneers
-</h2>
-
+                E-max Veneers
+              </h2>
 
               <p className="text-slate-600 mb-6 text-lg">
                 Lithium disilicate ceramic veneers offering unmatched strength
                 and natural translucency.
               </p>
-
-              <ul className="space-y-3">
-                {[
-                  "15+ years durability",
-                  "Natural enamel translucency",
-                  "Stain-resistant",
-                  "Minimal preparation",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-600">
-                    <span className="w-2 h-2 bg-gold rounded-full" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            {/* SWIPE E-MAX IMAGES */}
             <SwipeGallery images={emaxImages} />
           </div>
         </div>
