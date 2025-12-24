@@ -18,7 +18,7 @@ type FadeImageProps = {
   src: string;
 };
 
-const FadeImage = ({ src }: FadeImageProps) => {
+const FadeImage = ({ src }: { src: string }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -30,6 +30,7 @@ const FadeImage = ({ src }: FadeImageProps) => {
       className={`
         w-full h-full
         object-contain md:object-cover
+        mx-auto my-auto
         transition-opacity duration-500
         ${loaded ? "opacity-100" : "opacity-0"}
       `}
@@ -37,6 +38,8 @@ const FadeImage = ({ src }: FadeImageProps) => {
     />
   );
 };
+
+
 
 /* ===================== Swipe Gallery ===================== */
 type SwipeGalleryProps = {
@@ -57,20 +60,21 @@ const SwipeGallery = ({ images }: SwipeGalleryProps) => {
     >
       {images.map((img, index) => (
         <div
-          key={index}
-          className="
-            min-w-[260px]
-            sm:min-w-[300px]
-            md:min-w-[360px]
-            h-44 sm:h-52 md:h-64
-            snap-center
-            rounded-2xl
-            overflow-hidden
-            shadow-lg
-            bg-neutral-100
-            flex-shrink-0
-          "
-        >
+  className="
+    min-w-[260px]
+    sm:min-w-[300px]
+    md:min-w-[360px]
+    h-44 sm:h-52 md:h-64
+    snap-center
+    rounded-2xl
+    overflow-hidden
+    shadow-lg
+    bg-neutral-100
+    flex-shrink-0
+    flex items-center justify-center
+  "
+>
+
           <FadeImage src={img} />
         </div>
       ))}
