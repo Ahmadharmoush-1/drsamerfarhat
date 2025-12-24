@@ -8,12 +8,17 @@ import {
   Award,
   Shield,
 } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-/* ---------------- Fade Image ---------------- */
-const FadeImage = ({ src }: { src: string }) => {
+/* ===================== Fade Image ===================== */
+type FadeImageProps = {
+  src: string;
+};
+
+const FadeImage = ({ src }: FadeImageProps) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -28,12 +33,17 @@ const FadeImage = ({ src }: { src: string }) => {
         transition-opacity duration-500
         ${loaded ? "opacity-100" : "opacity-0"}
       `}
+      alt=""
     />
   );
 };
 
-/* ---------------- Swipe Gallery ---------------- */
-const SwipeGallery = ({ images }: { images: string[] }) => {
+/* ===================== Swipe Gallery ===================== */
+type SwipeGalleryProps = {
+  images: string[];
+};
+
+const SwipeGallery = ({ images }: SwipeGalleryProps) => {
   return (
     <div
       className="
@@ -45,9 +55,9 @@ const SwipeGallery = ({ images }: { images: string[] }) => {
         pb-3
       "
     >
-      {images.map((img, i) => (
+      {images.map((img, index) => (
         <div
-          key={i}
+          key={index}
           className="
             min-w-[260px]
             sm:min-w-[300px]
@@ -68,6 +78,7 @@ const SwipeGallery = ({ images }: { images: string[] }) => {
   );
 };
 
+/* ===================== Page ===================== */
 const CosmeticDentistry = () => {
   const location = useLocation();
 
@@ -75,14 +86,14 @@ const CosmeticDentistry = () => {
     if (location.hash) {
       setTimeout(() => {
         const element = document.querySelector(location.hash);
-        if (element) element.scrollIntoView({ behavior: "smooth" });
+        element?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     } else {
       window.scrollTo(0, 0);
     }
   }, [location]);
 
-  /* ---------------- IMAGES ---------------- */
+  /* ---------- Images ---------- */
   const compositeImages = [
     "/photos/CompositeVeneer-1.webp",
     "/photos/CompositeVeneer-2.webp",
@@ -95,10 +106,10 @@ const CosmeticDentistry = () => {
   ];
 
   const emaxImages = [
-    "/photos/emax-3.webp",
-    "/photos/emax-4.webp",
     "/photos/emax-1.webp",
     "/photos/emax-2.webp",
+    "/photos/emax-3.webp",
+    "/photos/emax-4.webp",
     "/photos/emax-5.webp",
     "/photos/emax-6.webp",
     "/photos/emax-7.webp",
@@ -111,7 +122,7 @@ const CosmeticDentistry = () => {
     <div className="min-h-screen bg-vip">
       <Navbar />
 
-      {/* ---------------- HERO ---------------- */}
+      {/* ===================== HERO ===================== */}
       <section className="pt-24 pb-14 md:pt-32 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-vip-cream via-vip to-white" />
         <div className="absolute inset-0 bg-gold/10" />
@@ -134,7 +145,7 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ---------------- VIP COMPOSITE ---------------- */}
+      {/* ===================== VIP COMPOSITE ===================== */}
       <section
         id="vip-composite"
         className="py-16 md:py-20 bg-gradient-to-b from-vip-cream via-vip to-vip"
@@ -162,7 +173,7 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ---------------- E-MAX ---------------- */}
+      {/* ===================== E-MAX ===================== */}
       <section id="emax-veneers" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
@@ -187,7 +198,7 @@ const CosmeticDentistry = () => {
         </div>
       </section>
 
-      {/* ---------------- CTA ---------------- */}
+      {/* ===================== CTA ===================== */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-gold/30 via-gold/20 to-gold/30">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
