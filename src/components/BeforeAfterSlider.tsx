@@ -9,7 +9,7 @@ const BeforeAfterSlider = () => {
   const comparisons = [ {
       before: "/photos/beforeafterslide2.jpg",
       after: "/photos/beforeafterslide2-1.jpg",
-      title: "Dental Implants & Restoration",
+      title: "Hollywood Smile Transformation",
       treatment: "Implants & Cosmetic Work",
     },
       {
@@ -28,7 +28,7 @@ const BeforeAfterSlider = () => {
     {
       before: "/photos/beforeafterslide3.jpg",
       after: "/photos/beforeafterslide3-1.jpg",
-      title: "Dental Implants & Restoration",
+      title: "Hollywood Smile Transformation",
       treatment: "Implants & Cosmetic Work",
     },
   ];
