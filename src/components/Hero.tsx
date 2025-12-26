@@ -193,41 +193,83 @@ const Hero = () => {
 
           {/* RIGHT IMAGE */}
           <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
-            <div className="relative group">
-              <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 rounded-full blur-2xl opacity-70 group-hover:opacity-90 transition-all duration-700" />
 
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary/60 via-transparent to-accent/60 p-[2px]">
-                <div className="w-full h-full rounded-full bg-background" />
-              </div>
+  {/* AVATAR WRAPPER */}
+  <div className="relative group w-[180px] sm:w-[220px] md:w-[260px] aspect-square">
 
-              <img
-                src="/photos/drlogo.jpg"
-                alt="Dr. Samer Farhat"
-                className="relative w-[130px] sm:w-[170px] md:w-[230px] rounded-full shadow-xl transition-transform duration-500 group-hover:scale-105 object-cover aspect-square"
-              />
-            </div>
+    {/* OUTER BLUE RING */}
+    <div className="absolute inset-0 rounded-full border-[3px] border-primary" />
 
-            {/* SIGNATURE */}
-            <div className="flex flex-col items-center w-full mt-2 px-4 text-center">
-              <div
-                className="text-primary text-lg sm:text-xl md:text-2xl overflow-hidden whitespace-nowrap"
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  width: "0",
-                  margin: "0 auto",
-                  animation: "typeSignature 2.5s steps(30, end) forwards",
-                }}
-              >
-                About Dr. Samer Farhat
-              </div>
+    {/* INNER DARK PLATE */}
+    <div className="absolute inset-[10px] rounded-full bg-[#1b2430]" />
 
-              <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs sm:max-w-sm">
-                With 9+ years of expertise in advanced dentistry, Dr. Farhat
-                provides world-class care with modern techniques and
-                high-precision treatments.
-              </p>
-            </div>
-          </div>
+    {/* IMAGE */}
+   {/* IMAGE (PERFECTLY CENTERED) */}
+<div className="absolute inset-[10px] flex items-center justify-center">
+
+  <img
+    src="/photos/drlogo.jpg"
+    alt="Dr. Samer Farhat"
+    className="
+      w-full h-full
+      rounded-full
+      object-cover
+      shadow-xl
+      transition-transform duration-500
+      group-hover:scale-105
+    "
+  />
+</div>
+
+
+    {/* 🦷 TOOTH BADGE (ATTACHED TO RING) */}
+    <div
+      className="
+        absolute
+        bottom-0 right-0
+       translate-x-[10%] translate-y-[10%]
+
+        w-12 h-12 md:w-14 md:h-14
+        rounded-full
+        bg-[#0e1621]
+        border-2 border-primary
+        flex items-center justify-center
+        shadow-xl
+        transition-transform duration-500
+        group-hover:scale-110
+      "
+    >
+      <img
+        src="/photos/tooth.png"
+        alt="Tooth"
+        className="w-6 h-6 md:w-7 md:h-7"
+      />
+    </div>
+
+  </div>
+
+  {/* SIGNATURE */}
+  <div className="flex flex-col items-center w-full mt-2 px-4 text-center">
+    <div
+      className="text-primary text-lg sm:text-xl md:text-2xl overflow-hidden whitespace-nowrap"
+      style={{
+        fontFamily: "'Playfair Display', serif",
+        width: "0",
+        margin: "0 auto",
+        animation: "typeSignature 2.5s steps(30, end) forwards",
+      }}
+    >
+      About Dr. Samer Farhat
+    </div>
+
+    <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs sm:max-w-sm">
+      With 9+ years of expertise in advanced dentistry, Dr. Farhat
+      provides world-class care with modern techniques and
+      high-precision treatments.
+    </p>
+  </div>
+</div>
+
 
         </div>
       </div>
