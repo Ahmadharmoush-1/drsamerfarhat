@@ -18,8 +18,17 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[78vh] flex items-center pt-8 pb-10 sm:pt-10 md:pt-12 overflow-hidden"
-    >
+     className="
+  relative
+  min-h-[90vh]
+  flex
+  items-start
+  pt-16 pb-24
+  sm:pt-20 sm:pb-28
+  md:pt-24 md:pb-32
+  overflow-hidden
+">
+
       {/* BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -148,7 +157,9 @@ const Hero = () => {
             </div>
 
             {/* BUTTONS */}
-            <div className="flex flex-col sm:flex-row gap-2 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mt-16 sm:mt-14 md:mt-20">
+
+
               <Button
                 onClick={scrollToAppointment}
                 size="lg"
