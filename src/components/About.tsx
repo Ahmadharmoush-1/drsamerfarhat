@@ -8,7 +8,7 @@ const About = () => {
       items: [
         "Doctor of Dental Surgery (DDS)",
         "Lebanese University Graduate - Dentistry",
-        "Aesthetic & Restorative Dentistry - USJ",
+        "Esthetic & Restorative Dentistry - USJ",
         "Cosmetic Dentistry Specialization",
       ],
     },
