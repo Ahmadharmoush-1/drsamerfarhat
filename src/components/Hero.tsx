@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -20,15 +20,15 @@ const Hero = () => {
       id="home"
       className="relative min-h-[78vh] flex items-center pt-8 pb-10 sm:pt-10 md:pt-12 overflow-hidden"
     >
-      {/* Background */}
+      {/* BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/photos/behindimage.jpg')" }}
+        style={{ backgroundImage: "url('/photos/drlogo.jpg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
       </div>
 
-      {/* Floating Feedback Button */}
+      {/* FLOATING FEEDBACK BUTTON */}
       <button
         onClick={scrollToFeedback}
         className="
@@ -43,7 +43,7 @@ const Hero = () => {
         Feedbacks
       </button>
 
-      {/* Floating Dental Icons */}
+      {/* FLOATING DENTAL ICONS */}
       <div className="absolute inset-0 pointer-events-none select-none opacity-25">
         <img
           src="/photos/tooth.png"
@@ -101,9 +101,9 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
 
-          {/* LEFT TEXT */}
+          {/* LEFT SIDE */}
           <div className="space-y-4 animate-slide-in-left text-center md:text-left">
-            <div className="inline-block px-3 py-1 bg-primary/10 rounded-full mx-auto md:mx-0">
+            <div className="inline-block px-3 py-1 bg-primary/10 rounded-full">
               <span className="text-xs font-medium text-primary">
                 Professional Dental Care
               </span>
@@ -113,23 +113,32 @@ const Hero = () => {
               <img
                 src="/photos/drlogohero.jpg"
                 alt="Dr. Samer Farhat"
-                className="block w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] object-contain"
+                className="w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px] xl:w-[500px] object-contain"
               />
-
-              <span
-                className="-mt-8 text-primary text-2xl sm:text-3xl md:text-4xl leading-none"
-                style={{ fontFamily: "'Great Vibes', cursive" }}
-              >
-                For Dental Solution
-              </span>
             </div>
 
-            <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-md mx-auto md:mx-0">
-              Experience premium dental care with advanced technology and
-              personalized treatment. Your smile is our priority.
-            </p>
+            {/* ABOUT TEXT */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <div
+                className="text-primary text-lg sm:text-xl md:text-2xl overflow-hidden whitespace-nowrap"
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  width: "0",
+                  animation: "typeSignature 2.5s steps(30, end) forwards",
+                }}
+              >
+                About Dr. Samer Farhat
+              </div>
 
-            <div className="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
+              <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm">
+                With 9+ years of expertise in advanced dentistry, Dr. Farhat
+                provides world-class care with modern techniques and
+                high-precision treatments.
+              </p>
+            </div>
+
+            {/* BADGES */}
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
               <div className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[11px] font-medium">
                 ⭐ 9+ Years Experience
               </div>
@@ -139,137 +148,46 @@ const Hero = () => {
             </div>
 
             {/* BUTTONS */}
-            <div className="flex flex-col sm:flex-row gap-2 pt-2 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-2 justify-center md:justify-start">
               <Button
                 onClick={scrollToAppointment}
                 size="lg"
-                className="shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                className="shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Appointment
               </Button>
 
               <Button
-  size="lg"
-  onClick={() => navigate("/cosmetic-dentistry")}
-  className="
-    relative overflow-hidden
-    w-full sm:w-auto
-    rounded-full
-    bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B8962E]
-    text-[#2F2600] font-semibold
-    shadow-lg
-    hover:shadow-2xl
-    hover:scale-105
-    transition-all duration-500
-  "
->
-  {/* SHINE */}
-  <span
-    className="
-      absolute inset-0
-      bg-gradient-to-r from-transparent via-white/45 to-transparent
-      translate-x-[-120%]
-      hover:translate-x-[120%]
-      transition-transform duration-1000
-    "
-  />
-
-  {/* TEXT */}
-  <span className="relative z-10 flex items-center gap-2">
-    ✨ E-max & VIP Composite Veneers
-  </span>
-</Button>
-
-            </div>
-
-            <div className="flex items-start justify-center md:justify-start gap-2 pt-2 text-xs sm:text-sm text-muted-foreground">
-              <MapPin className="w-4 h-4 mt-0.5 text-primary" />
-              <span className="max-w-[260px] leading-snug">
-                Beirut – Chiyah – Mar Mkhayel Church – Near Mazen Pharmacy
-              </span>
+                size="lg"
+                onClick={() => navigate("/cosmetic-dentistry")}
+                className="
+                  relative overflow-hidden
+                  rounded-full
+                  bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B8962E]
+                  text-[#2F2600] font-semibold
+                  shadow-lg hover:shadow-2xl
+                  hover:scale-105 transition-all duration-500
+                "
+              >
+                <span
+                  className="
+                    absolute inset-0
+                    bg-gradient-to-r from-transparent via-white/45 to-transparent
+                    translate-x-[-120%]
+                    hover:translate-x-[120%]
+                    transition-transform duration-1000
+                  "
+                />
+                <span className="relative z-10">
+                  E-max & VIP Composite Veneers
+                </span>
+              </Button>
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex flex-col items-center animate-slide-in-right pt-4 md:pt-0">
-
-  {/* AVATAR WRAPPER */}
-  <div className="relative group w-[180px] sm:w-[220px] md:w-[260px] aspect-square">
-
-    {/* OUTER BLUE RING */}
-    <div className="absolute inset-0 rounded-full border-[3px] border-primary" />
-
-    {/* INNER DARK PLATE */}
-    <div className="absolute inset-[10px] rounded-full bg-[#1b2430]" />
-
-    {/* IMAGE */}
-   {/* IMAGE (PERFECTLY CENTERED) */}
-<div className="absolute inset-[10px] flex items-center justify-center">
-
-  <img
-    src="/photos/drlogo.jpg"
-    alt="Dr. Samer Farhat"
-    className="
-      w-full h-full
-      rounded-full
-      object-cover
-      shadow-xl
-      transition-transform duration-500
-      group-hover:scale-105
-    "
-  />
-</div>
-
-
-    {/* 🦷 TOOTH BADGE (ATTACHED TO RING) */}
-    <div
-      className="
-        absolute
-        bottom-0 right-0
-       translate-x-[10%] translate-y-[10%]
-
-        w-12 h-12 md:w-14 md:h-14
-        rounded-full
-        bg-[#0e1621]
-        border-2 border-primary
-        flex items-center justify-center
-        shadow-xl
-        transition-transform duration-500
-        group-hover:scale-110
-      "
-    >
-      <img
-        src="/photos/tooth.png"
-        alt="Tooth"
-        className="w-6 h-6 md:w-7 md:h-7"
-      />
-    </div>
-
-  </div>
-
-  {/* SIGNATURE */}
-  <div className="flex flex-col items-center w-full mt-2 px-4 text-center">
-    <div
-      className="text-primary text-lg sm:text-xl md:text-2xl overflow-hidden whitespace-nowrap"
-      style={{
-        fontFamily: "'Playfair Display', serif",
-        width: "0",
-        margin: "0 auto",
-        animation: "typeSignature 2.5s steps(30, end) forwards",
-      }}
-    >
-      About Dr. Samer Farhat
-    </div>
-
-    <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs sm:max-w-sm">
-      With 9+ years of expertise in advanced dentistry, Dr. Farhat
-      provides world-class care with modern techniques and
-      high-precision treatments.
-    </p>
-  </div>
-</div>
-
+          {/* RIGHT SIDE (EMPTY / CLEAN) */}
+          <div />
 
         </div>
       </div>

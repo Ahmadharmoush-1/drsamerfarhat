@@ -40,25 +40,20 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-14 md:h-16">
 
           {/* LEFT */}
-          <div
-            className="flex items-center gap-3 cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            <div className="w-9 h-9 rounded-full overflow-hidden">
-              <img
-                src="/photos/drlogo.jpg"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-semibold text-sm">
-                Dr. Samer Farhat
-              </span>
-              <span className="text-[10px] text-muted-foreground">
-                Dental Specialist
-              </span>
-            </div>
-          </div>
+         <div
+  className="flex items-center cursor-pointer"
+  onClick={() => navigate("/")}
+>
+  <div className="flex flex-col leading-tight text-left">
+    <span className="font-semibold text-sm">
+      Dr. Samer Farhat
+    </span>
+    <span className="text-[10px] text-muted-foreground">
+      Esthetic & Dental Office
+    </span>
+  </div>
+</div>
+
 
           {/* RIGHT DESKTOP */}
           <div className="hidden md:flex items-center gap-5">
