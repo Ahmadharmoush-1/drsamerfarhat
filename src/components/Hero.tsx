@@ -18,8 +18,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[78vh] flex items-center pt-8 pb-10 sm:pt-10 md:pt-12 overflow-hidden"
-    >
+     className="relative min-h-[78vh] flex items-start pt-4 pb-8 sm:pt-6 md:pt-8 overflow-hidden">
+
       {/* BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -71,7 +71,9 @@ const Hero = () => {
         <div className="flex justify-center md:justify-start">
 
           {/* LEFT CONTENT ONLY */}
-          <div className="space-y-6 animate-slide-in-left text-center md:text-left">
+          <div className="space-y-3 animate-slide-in-left text-center md:text-left">
+
+
 
             {/* TAG */}
             <div className="inline-block px-3 py-1 bg-primary/10 rounded-full">
@@ -89,7 +91,10 @@ const Hero = () => {
 
             {/* DOCTOR IMAGE */}
             {/* DOCTOR IMAGE */}
-<div className="flex justify-center md:justify-start pt-4">
+<div className="flex justify-center md:justify-start -mt-4">
+
+
+
   <div className="relative group w-[180px] sm:w-[220px] md:w-[260px] aspect-square">
 
     {/* BLUE RING */}
