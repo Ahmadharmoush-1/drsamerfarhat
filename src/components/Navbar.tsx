@@ -45,12 +45,19 @@ const Navbar = () => {
   onClick={() => navigate("/")}
 >
   <div className="flex flex-col leading-tight text-left">
-    <span className="font-semibold text-sm">
-      Dr. Samer Farhat
-    </span>
-    <span className="text-[10px] text-muted-foreground">
-      Esthetic & Dental Office
-    </span>
+  <img
+  src="/photos/drlogohero.jpg"   // your logo path
+  alt="Dr. Samer Farhat"
+  className="
+    w-34 h-32
+    rounded-full
+    object-cover
+    cursor-pointer
+    transition-transform duration-300
+    hover:scale-105
+  "
+/>
+
   </div>
 </div>
 

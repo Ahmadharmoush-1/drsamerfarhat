@@ -17,8 +17,10 @@ const Hero = () => {
 
   return (
     <section
-      id="home"
-     className="relative min-h-[78vh] flex items-start pt-4 pb-8 sm:pt-6 md:pt-8 overflow-hidden">
+  id="home"
+  className="relative min-h-[78vh] flex items-start pt-16 pb-12 sm:pt-20 md:pt-24 overflow-hidden"
+>
+
 
       {/* BACKGROUND */}
       <div
@@ -83,11 +85,11 @@ const Hero = () => {
             </div>
 
             {/* LOGO */}
-            <img
+            {/* <img
               src="/photos/drlogohero.jpg"
               alt="Dr. Samer Farhat"
               className="mx-auto md:mx-0 w-[260px] sm:w-[320px] md:w-[380px] object-contain"
-            />
+            /> */}
 
             {/* DOCTOR IMAGE */}
             {/* DOCTOR IMAGE */}
