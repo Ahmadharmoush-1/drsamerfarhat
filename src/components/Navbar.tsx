@@ -84,7 +84,7 @@ const Navbar = () => {
                     onClick={() => goToCosmetic()}
                     className="block w-full text-left px-3 py-2 hover:bg-primary/10 rounded-lg"
                   >
-                    ⭐ Overview
+                     Overview
                   </button>
                   <button
                     onClick={() => goToCosmetic("#emax-veneers")}
