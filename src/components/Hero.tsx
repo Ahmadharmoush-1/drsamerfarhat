@@ -78,11 +78,11 @@ const Hero = () => {
 
 
             {/* TAG */}
-            <div className="inline-block px-3 py-1 bg-primary/10 rounded-full">
+            {/* <div className="inline-block px-3 py-1 bg-primary/10 rounded-full">
               <span className="text-xs font-medium text-primary">
                 Professional Dental Care
               </span>
-            </div>
+            </div> */}
 
             {/* LOGO */}
             {/* <img
