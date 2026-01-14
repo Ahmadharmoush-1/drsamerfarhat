@@ -112,38 +112,40 @@ const Navbar = () => {
             </Button>
 
             {/* SOCIAL ICONS */}
-            <div className="flex items-center gap-2 ml-1">
-              <a
-                href="https://www.instagram.com/drsamerfarhat/"
-                target="_blank"
-              >
-                <Instagram className="w-5 h-5 text-pink-500" />
-              </a>
-              <a href="https://wa.me/96176026004" target="_blank">
-                <MessageCircle className="w-5 h-5 text-green-500" />
-              </a>
-              <a href={mapUrl} target="_blank">
-                <MapPin className="w-5 h-5 text-red-500" />
-              </a>
-            </div>
+           <div className="flex items-center gap-2 ml-1">
+  <a href="https://www.instagram.com/drsamerfarhat/" target="_blank">
+    <Instagram className="w-5 h-5 text-white" />
+  </a>
+  <a href="https://wa.me/96176026004" target="_blank">
+    <MessageCircle className="w-5 h-5 text-white" />
+  </a>
+  <a href={mapUrl} target="_blank">
+    <MapPin className="w-5 h-5 text-white" />
+  </a>
+</div>
+
           </div>
 
           {/* MOBILE RIGHT */}
-          <div className="flex items-center gap-3 md:hidden">
-            <a href="https://www.instagram.com/drsamerfarhat/" target="_blank">
-              <Instagram className="w-5 h-5 text-pink-500" />
-            </a>
-            <a href="https://wa.me/96176026004" target="_blank">
-              <MessageCircle className="w-5 h-5 text-green-500" />
-            </a>
-            <a href={mapUrl} target="_blank">
-              <MapPin className="w-5 h-5 text-red-500" />
-            </a>
+       <div className="flex items-center gap-5 md:hidden text-blue-500 -ml-3">
+  <a href="https://www.instagram.com/drsamerfarhat/" target="_blank">
+    <Instagram className="w-5 h-5" />
+  </a>
 
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X /> : <Menu />}
-            </button>
-          </div>
+  <a href="https://wa.me/96176026004" target="_blank">
+    <MessageCircle className="w-5 h-5" />
+  </a>
+
+  <a href={mapUrl} target="_blank">
+    <MapPin className="w-5 h-5" />
+  </a>
+
+  <button onClick={() => setIsOpen(!isOpen)}>
+    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+  </button>
+</div>
+
+
         </div>
 
         {/* MOBILE MENU */}
